@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/CurvedShadows.dir/main.cpp.o -o CurvedShadows  -lGL -lGLU -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor -lassimp /usr/lib/x86_64-linux-gnu/libGLEW.so 

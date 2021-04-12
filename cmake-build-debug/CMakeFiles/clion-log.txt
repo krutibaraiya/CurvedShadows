@@ -1,0 +1,22 @@
+/snap/clion/149/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/kruti/Desktop/CurvedShadows
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+-- Found GLEW: /usr/include (found version "2.1.0") 
+CMake Error at CMakeLists.txt:12 (find_package):
+  By not providing "FindGLM.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "GLM", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "GLM" with any of
+  the following names:
+
+    GLMConfig.cmake
+    glm-config.cmake
+
+  Add the installation prefix of "GLM" to CMAKE_PREFIX_PATH or set "GLM_DIR"
+  to a directory containing one of the above files.  If "GLM" provides a
+  separate development package or SDK, be sure it has been installed.
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles/CMakeOutput.log".
