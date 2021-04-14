@@ -62,10 +62,10 @@ RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kruti/Desktop/CurvedShadows
+CMAKE_SOURCE_DIR = /home/kruti/Desktop/Graphics-Project/CurvedShadows
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kruti/Desktop/CurvedShadows/cmake-build-debug
+CMAKE_BINARY_DIR = /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/CurvedShadows.dir/depend.make
@@ -78,29 +78,74 @@ include CMakeFiles/CurvedShadows.dir/flags.make
 
 CMakeFiles/CurvedShadows.dir/main.cpp.o: CMakeFiles/CurvedShadows.dir/flags.make
 CMakeFiles/CurvedShadows.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CurvedShadows.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CurvedShadows.dir/main.cpp.o -c /home/kruti/Desktop/CurvedShadows/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/CurvedShadows.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CurvedShadows.dir/main.cpp.o -c /home/kruti/Desktop/Graphics-Project/CurvedShadows/main.cpp
 
 CMakeFiles/CurvedShadows.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CurvedShadows.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kruti/Desktop/CurvedShadows/main.cpp > CMakeFiles/CurvedShadows.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kruti/Desktop/Graphics-Project/CurvedShadows/main.cpp > CMakeFiles/CurvedShadows.dir/main.cpp.i
 
 CMakeFiles/CurvedShadows.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CurvedShadows.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kruti/Desktop/CurvedShadows/main.cpp -o CMakeFiles/CurvedShadows.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kruti/Desktop/Graphics-Project/CurvedShadows/main.cpp -o CMakeFiles/CurvedShadows.dir/main.cpp.s
+
+CMakeFiles/CurvedShadows.dir/Shader.cpp.o: CMakeFiles/CurvedShadows.dir/flags.make
+CMakeFiles/CurvedShadows.dir/Shader.cpp.o: ../Shader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/CurvedShadows.dir/Shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CurvedShadows.dir/Shader.cpp.o -c /home/kruti/Desktop/Graphics-Project/CurvedShadows/Shader.cpp
+
+CMakeFiles/CurvedShadows.dir/Shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CurvedShadows.dir/Shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kruti/Desktop/Graphics-Project/CurvedShadows/Shader.cpp > CMakeFiles/CurvedShadows.dir/Shader.cpp.i
+
+CMakeFiles/CurvedShadows.dir/Shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CurvedShadows.dir/Shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kruti/Desktop/Graphics-Project/CurvedShadows/Shader.cpp -o CMakeFiles/CurvedShadows.dir/Shader.cpp.s
+
+CMakeFiles/CurvedShadows.dir/Camera.cpp.o: CMakeFiles/CurvedShadows.dir/flags.make
+CMakeFiles/CurvedShadows.dir/Camera.cpp.o: ../Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/CurvedShadows.dir/Camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CurvedShadows.dir/Camera.cpp.o -c /home/kruti/Desktop/Graphics-Project/CurvedShadows/Camera.cpp
+
+CMakeFiles/CurvedShadows.dir/Camera.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CurvedShadows.dir/Camera.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kruti/Desktop/Graphics-Project/CurvedShadows/Camera.cpp > CMakeFiles/CurvedShadows.dir/Camera.cpp.i
+
+CMakeFiles/CurvedShadows.dir/Camera.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CurvedShadows.dir/Camera.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kruti/Desktop/Graphics-Project/CurvedShadows/Camera.cpp -o CMakeFiles/CurvedShadows.dir/Camera.cpp.s
+
+CMakeFiles/CurvedShadows.dir/Parser.cpp.o: CMakeFiles/CurvedShadows.dir/flags.make
+CMakeFiles/CurvedShadows.dir/Parser.cpp.o: ../Parser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/CurvedShadows.dir/Parser.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/CurvedShadows.dir/Parser.cpp.o -c /home/kruti/Desktop/Graphics-Project/CurvedShadows/Parser.cpp
+
+CMakeFiles/CurvedShadows.dir/Parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CurvedShadows.dir/Parser.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kruti/Desktop/Graphics-Project/CurvedShadows/Parser.cpp > CMakeFiles/CurvedShadows.dir/Parser.cpp.i
+
+CMakeFiles/CurvedShadows.dir/Parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CurvedShadows.dir/Parser.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kruti/Desktop/Graphics-Project/CurvedShadows/Parser.cpp -o CMakeFiles/CurvedShadows.dir/Parser.cpp.s
 
 # Object files for target CurvedShadows
 CurvedShadows_OBJECTS = \
-"CMakeFiles/CurvedShadows.dir/main.cpp.o"
+"CMakeFiles/CurvedShadows.dir/main.cpp.o" \
+"CMakeFiles/CurvedShadows.dir/Shader.cpp.o" \
+"CMakeFiles/CurvedShadows.dir/Camera.cpp.o" \
+"CMakeFiles/CurvedShadows.dir/Parser.cpp.o"
 
 # External object files for target CurvedShadows
 CurvedShadows_EXTERNAL_OBJECTS =
 
 CurvedShadows: CMakeFiles/CurvedShadows.dir/main.cpp.o
+CurvedShadows: CMakeFiles/CurvedShadows.dir/Shader.cpp.o
+CurvedShadows: CMakeFiles/CurvedShadows.dir/Camera.cpp.o
+CurvedShadows: CMakeFiles/CurvedShadows.dir/Parser.cpp.o
 CurvedShadows: CMakeFiles/CurvedShadows.dir/build.make
 CurvedShadows: /usr/lib/x86_64-linux-gnu/libGLEW.so
 CurvedShadows: CMakeFiles/CurvedShadows.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable CurvedShadows"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable CurvedShadows"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/CurvedShadows.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -113,6 +158,6 @@ CMakeFiles/CurvedShadows.dir/clean:
 .PHONY : CMakeFiles/CurvedShadows.dir/clean
 
 CMakeFiles/CurvedShadows.dir/depend:
-	cd /home/kruti/Desktop/CurvedShadows/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kruti/Desktop/CurvedShadows /home/kruti/Desktop/CurvedShadows /home/kruti/Desktop/CurvedShadows/cmake-build-debug /home/kruti/Desktop/CurvedShadows/cmake-build-debug /home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles/CurvedShadows.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kruti/Desktop/Graphics-Project/CurvedShadows /home/kruti/Desktop/Graphics-Project/CurvedShadows /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles/CurvedShadows.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/CurvedShadows.dir/depend
 

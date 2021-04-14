@@ -13,6 +13,58 @@ GLFWwindow* window;
 #include <glm/glm.hpp>
 using namespace glm;
 
+#include "Shader.h"
+#include "Camera.h"
+
+Camera camera({10, 10, -5}, {0, 0, 0});
+
+bool isDragging = false;
+double dragX = -1, dragY = -1;
+
+//implementing key callbacks left
+
+void glfw_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+    if (key == GLFW_KEY_W and action == GLFW_PRESS) {
+        camera.translate(Camera::Direction::FORWARD);
+    } else if (key == GLFW_KEY_S and action == GLFW_PRESS) {
+        camera.translate(Camera::Direction::BACKWARD);
+    } else if (key == GLFW_KEY_A and action == GLFW_PRESS) {
+        camera.translate(Camera::Direction::LEFT);
+    } else if (key == GLFW_KEY_D and action == GLFW_PRESS) {
+        camera.translate(Camera::Direction::RIGHT);
+    } else if (key == GLFW_KEY_UP and action == GLFW_PRESS) {
+        camera.translate(Camera::Direction::UP);
+    } else if (key == GLFW_KEY_DOWN and action == GLFW_PRESS) {
+        camera.translate(Camera::Direction::DOWN);
+    } else if (key == GLFW_KEY_R and action == GLFW_PRESS) {
+        camera.reset();
+    } else if (key == GLFW_KEY_Q and action == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, GL_TRUE);
+    }
+}
+
+void glfw_mouse_button_callback(GLFWwindow* window, int button, int action, int mods) {
+    if (button == GLFW_MOUSE_BUTTON_LEFT) {
+        isDragging = action == GLFW_PRESS;
+        if (not isDragging)
+            dragX = dragY = -1;
+    }
+}
+
+void glfw_cursor_position_callback(GLFWwindow* window, double xPos, double yPos) {
+    if (isDragging) {
+        if (dragX != -1 and dragY != -1)
+            camera.rotate(xPos - dragX, yPos - dragY);
+        dragX = xPos;
+        dragY = yPos;
+    }
+}
+
+void glfw_scroll_callback(GLFWwindow* window, double xOffset, double yOffset) {
+    camera.zoom(yOffset);
+}
+
+
 int main( void )
 {
     // Initialise GLFW
@@ -47,29 +99,15 @@ int main( void )
         return -1;
     }
 
-    // Ensure we can capture the escape key being pressed below
-    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+//    // Ensure we can capture the escape key being pressed below
+//    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+//
+//    // Grey background
+//    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 
-    // Grey background
-    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+    glEnable(GL_DEPTH_TEST); // enable depth-testing
+    glDepthFunc(GL_LESS);
+    glEnable(GL_CULL_FACE);
 
-    do{
-        // Clear the screen. It can cause flickering, so it's there nonetheless.
-        glClear( GL_COLOR_BUFFER_BIT );
-
-        // Draw nothing for now
-
-
-        // Swap buffers
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-
-    } // Check if the ESC key was pressed or the window was closed
-    while( glfwGetKey(window, GLFW_KEY_ESCAPE ) != GLFW_PRESS &&
-           glfwWindowShouldClose(window) == 0 );
-
-    // Close OpenGL window and terminate GLFW
-    glfwTerminate();
-
-    return 0;
+    Shader shader("Shaders/vert_shader.glsl", "Shaders/frag_shader.glsl");
 }

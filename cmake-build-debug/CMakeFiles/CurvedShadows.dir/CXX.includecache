@@ -6,7 +6,35 @@
 
 #IncludeRegexTransform: 
 
-/home/kruti/Desktop/CurvedShadows/main.cpp
+/home/kruti/Desktop/Graphics-Project/CurvedShadows/Camera.h
+GL/glew.h
+-
+GL/freeglut.h
+-
+GL/gl.h
+-
+GL/glu.h
+-
+glm/glm.hpp
+-
+glm/gtc/constants.hpp
+-
+
+/home/kruti/Desktop/Graphics-Project/CurvedShadows/Shader.h
+string
+-
+vector
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+
+/home/kruti/Desktop/Graphics-Project/CurvedShadows/main.cpp
 stdio.h
 -
 stdlib.h
@@ -17,4 +45,8 @@ GLFW/glfw3.h
 -
 glm/glm.hpp
 -
+Shader.h
+/home/kruti/Desktop/Graphics-Project/CurvedShadows/Shader.h
+Camera.h
+/home/kruti/Desktop/Graphics-Project/CurvedShadows/Camera.h
 

@@ -1,22 +1,18 @@
-/snap/clion/149/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/kruti/Desktop/CurvedShadows
--- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
--- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
--- Found GLEW: /usr/include (found version "2.1.0") 
-CMake Error at CMakeLists.txt:12 (find_package):
-  By not providing "FindGLM.cmake" in CMAKE_MODULE_PATH this project has
-  asked CMake to find a package configuration file provided by "GLM", but
-  CMake did not find one.
+/snap/clion/149/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/kruti/Desktop/Graphics-Project/CurvedShadows
+CMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/assimp-5.0/assimpTargets.cmake:54 (if):
+  if given arguments:
 
-  Could not find a package configuration file provided by "GLM" with any of
-  the following names:
+    "ON"
 
-    GLMConfig.cmake
-    glm-config.cmake
+  An argument named "ON" appears in a conditional statement.  Policy CMP0012
+  is not set: if() recognizes numbers and boolean constants.  Run "cmake
+  --help-policy CMP0012" for policy details.  Use the cmake_policy command to
+  set the policy and suppress this warning.
+Call Stack (most recent call first):
+  /usr/lib/x86_64-linux-gnu/cmake/assimp-5.0/assimp-config.cmake:1 (include)
+  CMakeLists.txt:15 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
 
-  Add the installation prefix of "GLM" to CMAKE_PREFIX_PATH or set "GLM_DIR"
-  to a directory containing one of the above files.  If "GLM" provides a
-  separate development package or SDK, be sure it has been installed.
-
-
--- Configuring incomplete, errors occurred!
-See also "/home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug

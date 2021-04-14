@@ -4,7 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kruti/Desktop/CurvedShadows/main.cpp" "/home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles/CurvedShadows.dir/main.cpp.o"
+  "/home/kruti/Desktop/Graphics-Project/CurvedShadows/Camera.cpp" "/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles/CurvedShadows.dir/Camera.cpp.o"
+  "/home/kruti/Desktop/Graphics-Project/CurvedShadows/Parser.cpp" "/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles/CurvedShadows.dir/Parser.cpp.o"
+  "/home/kruti/Desktop/Graphics-Project/CurvedShadows/Shader.cpp" "/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles/CurvedShadows.dir/Shader.cpp.o"
+  "/home/kruti/Desktop/Graphics-Project/CurvedShadows/main.cpp" "/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles/CurvedShadows.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

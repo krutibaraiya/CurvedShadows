@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/kruti/Desktop/CurvedShadows/CurvedShadows -I/home/kruti/Desktop/CurvedShadows/GLM_INCLUDE_DIR -I/home/kruti/Desktop/CurvedShadows/ASSIMP_INCLUDE_DIRS
+CXX_INCLUDES = -I/home/kruti/Desktop/Graphics-Project/CurvedShadows/CurvedShadows -I/home/kruti/Desktop/Graphics-Project/CurvedShadows/GLM_INCLUDE_DIR -I/home/kruti/Desktop/Graphics-Project/CurvedShadows/ASSIMP_INCLUDE_DIRS
 
 CXX_FLAGS = -g -std=gnu++17
 

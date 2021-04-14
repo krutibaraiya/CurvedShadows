@@ -63,10 +63,10 @@ RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kruti/Desktop/CurvedShadows
+CMAKE_SOURCE_DIR = /home/kruti/Desktop/Graphics-Project/CurvedShadows
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kruti/Desktop/CurvedShadows/cmake-build-debug
+CMAKE_BINARY_DIR = /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -93,14 +93,14 @@ clean: CMakeFiles/CurvedShadows.dir/clean
 CMakeFiles/CurvedShadows.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target CurvedShadows"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target CurvedShadows"
 .PHONY : CMakeFiles/CurvedShadows.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/CurvedShadows.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CurvedShadows.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/CurvedShadows.dir/rule
 
 # Convenience name for target.

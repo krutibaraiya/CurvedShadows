@@ -67,10 +67,10 @@ RM = /snap/clion/149/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kruti/Desktop/CurvedShadows
+CMAKE_SOURCE_DIR = /home/kruti/Desktop/Graphics-Project/CurvedShadows
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kruti/Desktop/CurvedShadows/cmake-build-debug
+CMAKE_BINARY_DIR = /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles /home/kruti/Desktop/CurvedShadows/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kruti/Desktop/CurvedShadows/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kruti/Desktop/Graphics-Project/CurvedShadows/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,6 +142,87 @@ CurvedShadows/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/build
 .PHONY : CurvedShadows/fast
 
+Camera.o: Camera.cpp.o
+
+.PHONY : Camera.o
+
+# target to build an object file
+Camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Camera.cpp.o
+.PHONY : Camera.cpp.o
+
+Camera.i: Camera.cpp.i
+
+.PHONY : Camera.i
+
+# target to preprocess a source file
+Camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Camera.cpp.i
+.PHONY : Camera.cpp.i
+
+Camera.s: Camera.cpp.s
+
+.PHONY : Camera.s
+
+# target to generate assembly for a file
+Camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Camera.cpp.s
+.PHONY : Camera.cpp.s
+
+Parser.o: Parser.cpp.o
+
+.PHONY : Parser.o
+
+# target to build an object file
+Parser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Parser.cpp.o
+.PHONY : Parser.cpp.o
+
+Parser.i: Parser.cpp.i
+
+.PHONY : Parser.i
+
+# target to preprocess a source file
+Parser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Parser.cpp.i
+.PHONY : Parser.cpp.i
+
+Parser.s: Parser.cpp.s
+
+.PHONY : Parser.s
+
+# target to generate assembly for a file
+Parser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Parser.cpp.s
+.PHONY : Parser.cpp.s
+
+Shader.o: Shader.cpp.o
+
+.PHONY : Shader.o
+
+# target to build an object file
+Shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Shader.cpp.o
+.PHONY : Shader.cpp.o
+
+Shader.i: Shader.cpp.i
+
+.PHONY : Shader.i
+
+# target to preprocess a source file
+Shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Shader.cpp.i
+.PHONY : Shader.cpp.i
+
+Shader.s: Shader.cpp.s
+
+.PHONY : Shader.s
+
+# target to generate assembly for a file
+Shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Shader.cpp.s
+.PHONY : Shader.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -178,6 +259,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... CurvedShadows"
+	@echo "... Camera.o"
+	@echo "... Camera.i"
+	@echo "... Camera.s"
+	@echo "... Parser.o"
+	@echo "... Parser.i"
+	@echo "... Parser.s"
+	@echo "... Shader.o"
+	@echo "... Shader.i"
+	@echo "... Shader.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
