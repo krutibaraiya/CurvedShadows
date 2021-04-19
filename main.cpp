@@ -16,9 +16,12 @@ using namespace glm;
 #include "Shader.h"
 #include "Camera.h"
 #include "ObjModel.h"
+#include "Light.h"
 
 Camera camera({10, 10, -5}, {0, 0, 0});
+Light whitelight =  {{10,  15, 15},  {0, 0, 1}};
 
+//glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 bool isDragging = false;
 double dragX = -1, dragY = -1;
 
@@ -101,30 +104,48 @@ int main( void )
         return -1;
     }
 
-//    // Ensure we can capture the escape key being pressed below
-//    glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
-//
-//    // Grey background
-//    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
-
     glEnable(GL_DEPTH_TEST); // enable depth-testing
     glDepthFunc(GL_LESS);
     glEnable(GL_CULL_FACE);
 
     Shader shader("Shaders/vert_shader.glsl", "Shaders/frag_shader.glsl");
+    Shader lightshader("Shaders/light_vert_shader.glsl", "Shaders/light_frag_shader.glsl");
+
     auto room = ObjModel("models/room.obj");
+
     while (!glfwWindowShouldClose(window))
     {
         auto model = glm::mat4(1.0f);
         float near_plane = 1.f, far_plane = 35.f;
+
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glViewport(0, 0, 800, 600);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            
             auto proj = glm::perspective(45.f * camera.getZoom(), aspect, near_plane, far_plane);
             glm::mat4 view = camera.lookAt();
-            shader.set("projection", proj);
+        
+        shader.set("projection", proj);
         shader.set("view", view);
         shader.set("model", model);
+
+        lightShader.set("projection", proj);
+        lightShader.set("view", view);
+        lightShader.use();
+
+
+        shader.use();
+        shader.set("lightPos", whitelight.getPosition());
+        shader.set("lightColor", whitelight.getColor());
+        shader.set("lightSpace", whitelight.proj_view);
+        //shader.set("shadowMap", i);  // should be the index used in glActiveTexture, not the texture ID
+
+
+
+        lightShader.set("model", whitelight.getModel());
+        lightShader.set("lightColor", whitelight.getColor());
+        cube.draw();
+
         shader.use();
         room.draw();
 
