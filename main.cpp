@@ -110,4 +110,6 @@ int main( void )
     glEnable(GL_CULL_FACE);
 
     Shader shader("Shaders/vert_shader.glsl", "Shaders/frag_shader.glsl");
+    
+
 }
