@@ -15,6 +15,7 @@ using namespace glm;
 
 #include "Shader.h"
 #include "Camera.h"
+#include "ObjModel.h"
 
 Camera camera({10, 10, -5}, {0, 0, 0});
 
