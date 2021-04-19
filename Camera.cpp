@@ -44,9 +44,10 @@ void Camera::updateVectors() {
 /**
  * @brief Method to set the position and axis of camera
  */
-void Camera::lookAt() {
-    auto center = position + front;
-    gluLookAt(position.x, position.y, position.z, center.x, center.y, center.z, up.x, up.y, up.z);
+glm::mat4 Camera::lookAt() {
+    return glm::lookAt(position, position + front, up);
+    // auto center = position + front;
+    // gluLookAt(position.x, position.y, position.z, center.x, center.y, center.z, up.x, up.y, up.z);
 }
 
 /**
