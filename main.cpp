@@ -111,4 +111,26 @@ int main( void )
     glEnable(GL_CULL_FACE);
 
     Shader shader("Shaders/vert_shader.glsl", "Shaders/frag_shader.glsl");
+    auto room = ObjModel("models/room.obj");
+    while (!glfwWindowShouldClose(window))
+    {
+        auto model = glm::mat4(1.0f);
+        float near_plane = 1.f, far_plane = 35.f;
+            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            glViewport(0, 0, 800, 600);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            auto proj = glm::perspective(45.f * camera.getZoom(), aspect, near_plane, far_plane);
+            auto view = camera.lookAt();
+            shader.set("projection", proj);
+        shader.set("view", view);
+        shader.set("model", model);
+        shader.use();
+        room.draw();
+
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    }
+    
+    glfwTerminate();
+    return 0;
 }
