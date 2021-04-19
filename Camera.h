@@ -63,7 +63,7 @@ public:
     /**
      * @brief Calculate the final MVP matrix and call gluLookAt. Call this in render loop.
      */
-    void lookAt();
+    glm::mat4 lookAt();
 
     /**
      * @brief Reset the camera view back to initial parameters.
