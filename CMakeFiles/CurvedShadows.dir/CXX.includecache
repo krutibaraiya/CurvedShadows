@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sristi/CurvedShadows/ObjModel.cpp
+assimp/Importer.hpp
+-
+assimp/postprocess.h
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+ObjModel.h
+/home/sristi/CurvedShadows/ObjModel.h
+
+/home/sristi/CurvedShadows/ObjModel.h
+vector
+-
+glm/glm.hpp
+-
+assimp/scene.h
+-
+

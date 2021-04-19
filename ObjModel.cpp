@@ -1,6 +1,10 @@
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
-#include "common.h"
+//#include "common.h"
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 #include "ObjModel.h"
 
 ObjModel::ObjModel(const char* path) {

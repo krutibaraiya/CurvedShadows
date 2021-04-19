@@ -121,7 +121,7 @@ int main( void )
             glViewport(0, 0, 800, 600);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
             auto proj = glm::perspective(45.f * camera.getZoom(), aspect, near_plane, far_plane);
-            auto view = camera.lookAt();
+            glm::mat4 view = camera.lookAt();
             shader.set("projection", proj);
         shader.set("view", view);
         shader.set("model", model);

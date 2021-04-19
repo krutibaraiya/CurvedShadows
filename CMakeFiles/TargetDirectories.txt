@@ -1,0 +1,3 @@
+/home/sristi/CurvedShadows/CMakeFiles/rebuild_cache.dir
+/home/sristi/CurvedShadows/CMakeFiles/edit_cache.dir
+/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir
