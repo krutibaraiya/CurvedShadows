@@ -109,9 +109,10 @@ int main( void )
     glEnable(GL_CULL_FACE);
 
     Shader shader("Shaders/vert_shader.glsl", "Shaders/frag_shader.glsl");
-    Shader lightshader("Shaders/light_vert_shader.glsl", "Shaders/light_frag_shader.glsl");
+    Shader lightShader("Shaders/light_vert_shader.glsl", "Shaders/light_frag_shader.glsl");
 
     auto room = ObjModel("models/room.obj");
+    auto cube = ObjModel("models/cube.obj");
 
     while (!glfwWindowShouldClose(window))
     {
@@ -121,38 +122,32 @@ int main( void )
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glViewport(0, 0, 800, 600);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-            
+
             auto proj = glm::perspective(45.f * camera.getZoom(), aspect, near_plane, far_plane);
             glm::mat4 view = camera.lookAt();
-        
+        shader.use();
         shader.set("projection", proj);
         shader.set("view", view);
         shader.set("model", model);
-
-        lightShader.set("projection", proj);
-        lightShader.set("view", view);
-        lightShader.use();
-
-
-        shader.use();
         shader.set("lightPos", whitelight.getPosition());
         shader.set("lightColor", whitelight.getColor());
         shader.set("lightSpace", whitelight.proj_view);
-        //shader.set("shadowMap", i);  // should be the index used in glActiveTexture, not the texture ID
+        room.draw();
 
-
-
+        lightShader.use();
+        lightShader.set("projection", proj);
+        lightShader.set("view", view);
         lightShader.set("model", whitelight.getModel());
         lightShader.set("lightColor", whitelight.getColor());
-        cube.draw();
-
-        shader.use();
-        room.draw();
+        cube.draw();  
+      
+            
+       
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-    
+
     glfwTerminate();
     return 0;
 }

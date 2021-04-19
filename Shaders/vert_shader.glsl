@@ -1,18 +1,17 @@
 #version 330 core
+layout (location = 0) in vec3 aPos; // Input vertex
+layout (location = 1) in vec3 aNormal; // Input normal
+ 
+out vec3 Normal; // output normal
+out vec4 FragPos; // fragment position 
 
-layout (location = 0) in vec3 vPos_modelspace;
-layout (location = 1) in vec3 vNormal;
-
-out vec3 Normal;
-out vec4 FragPos;
-
-uniform mat4 model;
-uniform mat4 view;
-uniform mat4 projection;
+uniform mat4 model; // Model matrix
+uniform mat4 view; // View Matrix
+uniform mat4 projection; // Projection matrix
 
 
 void main() {
-    gl_Position = projection * view * model * vec4(vPos_modelspace, 1.0);
-    Normal = transpose(inverse(mat3(model))) * vNormal;
-    FragPos = model * vec4(vPos_modelspace, 1.0);
+    gl_Position = projection * view * model * vec4(aPos, 1.0);
+    Normal = transpose(inverse(mat3(model))) * aNormal;
+    FragPos = model * vec4(aPos, 1.0);
 }

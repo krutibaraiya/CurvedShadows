@@ -4,6 +4,10 @@
 CMakeFiles/CurvedShadows.dir/Camera.cpp.o
  /home/sristi/CurvedShadows/Camera.cpp
  /home/sristi/CurvedShadows/Camera.h
+CMakeFiles/CurvedShadows.dir/Light.cpp.o
+ /home/sristi/CurvedShadows/Light.cpp
+ /home/sristi/CurvedShadows/Light.h
+ /home/sristi/CurvedShadows/Shader.h
 CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o
  /home/sristi/CurvedShadows/ObjModel.cpp
  /home/sristi/CurvedShadows/ObjModel.h
@@ -14,6 +18,7 @@ CMakeFiles/CurvedShadows.dir/Shader.cpp.o
  /home/sristi/CurvedShadows/Shader.h
 CMakeFiles/CurvedShadows.dir/main.cpp.o
  /home/sristi/CurvedShadows/Camera.h
+ /home/sristi/CurvedShadows/Light.h
  /home/sristi/CurvedShadows/ObjModel.h
  /home/sristi/CurvedShadows/Shader.h
  /home/sristi/CurvedShadows/main.cpp

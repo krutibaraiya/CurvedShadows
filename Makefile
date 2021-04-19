@@ -150,6 +150,33 @@ Camera.cpp.s:
 	$(MAKE) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Camera.cpp.s
 .PHONY : Camera.cpp.s
 
+Light.o: Light.cpp.o
+
+.PHONY : Light.o
+
+# target to build an object file
+Light.cpp.o:
+	$(MAKE) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Light.cpp.o
+.PHONY : Light.cpp.o
+
+Light.i: Light.cpp.i
+
+.PHONY : Light.i
+
+# target to preprocess a source file
+Light.cpp.i:
+	$(MAKE) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Light.cpp.i
+.PHONY : Light.cpp.i
+
+Light.s: Light.cpp.s
+
+.PHONY : Light.s
+
+# target to generate assembly for a file
+Light.cpp.s:
+	$(MAKE) -f CMakeFiles/CurvedShadows.dir/build.make CMakeFiles/CurvedShadows.dir/Light.cpp.s
+.PHONY : Light.cpp.s
+
 ObjModel.o: ObjModel.cpp.o
 
 .PHONY : ObjModel.o
@@ -270,6 +297,9 @@ help:
 	@echo "... Camera.o"
 	@echo "... Camera.i"
 	@echo "... Camera.s"
+	@echo "... Light.o"
+	@echo "... Light.i"
+	@echo "... Light.s"
 	@echo "... ObjModel.o"
 	@echo "... ObjModel.i"
 	@echo "... ObjModel.s"

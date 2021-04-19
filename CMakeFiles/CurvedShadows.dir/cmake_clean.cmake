@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/CurvedShadows.dir/Camera.cpp.o"
+  "CMakeFiles/CurvedShadows.dir/Light.cpp.o"
   "CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o"
   "CMakeFiles/CurvedShadows.dir/Parser.cpp.o"
   "CMakeFiles/CurvedShadows.dir/Shader.cpp.o"

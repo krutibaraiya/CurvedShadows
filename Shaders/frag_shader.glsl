@@ -13,26 +13,22 @@ struct Light {
     bool enabled;
 };
 
-uniform int numLights; // number of lights
-uniform Light whitelight; // Array of the light sources
+//uniform int numLights; // number of lights
+//uniform Light whitelight; // Array of the light sources
 
 void main() {
     vec3 norm = normalize(Normal);
     vec3 color = vec3(0);
-
-    
-    //ambient
-        vec3 ambient = 0.1 * whitelight.lightColor;
-
-    //diffuse
+    int total_enabled = 1;
+  
+        total_enabled++;
+        vec3 ambient = 0.3 * whitelight.lightColor;
         vec3 lightDir = normalize(whitelight.lightPos - FragPos.xyz);
         float diff = max(dot(norm, lightDir), 0.0);
-        vec3 diffuse = diff * whitelight.lightColor;
-
-
-
-        
-    vec3 result = (ambient + diffuse ) * color;
- 
-    FragColor = vec4(result, 1);
+        vec3 diffuse = 0.8 * diff * whitelight.lightColor;
+        vec4 fragPosLightSpace = whitelight.lightSpace * FragPos;
+        color += (ambient  * diffuse);
+    
+    color /= 1;
+    FragColor = vec4(color, 1);
 }

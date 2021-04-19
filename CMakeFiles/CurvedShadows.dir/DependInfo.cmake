@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sristi/CurvedShadows/Camera.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/Camera.cpp.o"
+  "/home/sristi/CurvedShadows/Light.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/Light.cpp.o"
   "/home/sristi/CurvedShadows/ObjModel.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o"
   "/home/sristi/CurvedShadows/Parser.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/Parser.cpp.o"
   "/home/sristi/CurvedShadows/Shader.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/Shader.cpp.o"
