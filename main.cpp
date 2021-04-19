@@ -19,7 +19,7 @@ using namespace glm;
 #include "Light.h"
 
 Camera camera({10, 10, -5}, {0, 0, 0});
-Light whitelight =  {{10,  15, 15},  {0, 0, 1}};
+Light whitelight =  {{10,  15, 15},  {1, 0, 1}};
 
 //glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 bool isDragging = false;
@@ -72,7 +72,7 @@ void glfw_scroll_callback(GLFWwindow* window, double xOffset, double yOffset) {
 int main( void )
 {
     float aspect = (float) 800 / (float) 600;
-    const unsigned int SHADOW_RES = 1024; 
+    const unsigned int SHADOW_RES = 1024;
     // Initialise GLFW
     if( !glfwInit() )
     {
@@ -111,7 +111,7 @@ int main( void )
 
     Shader shader("Shaders/vert_shader.glsl", "Shaders/frag_shader.glsl");
     Shader lightShader("Shaders/light_vert_shader.glsl", "Shaders/light_frag_shader.glsl");
-    Shader depthShader("shaders/depth_vert.glsl", "shaders/depth_frag.glsl");
+    Shader depthShader("Shaders/depth_vert.glsl", "Shaders/depth_frag.glsl");
 
     auto room = ObjModel("models/room.obj");
     auto cube = ObjModel("models/cube.obj");
@@ -124,11 +124,11 @@ int main( void )
     glReadBuffer(GL_NONE);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-       
-    whitelight.genDepthMap(SHADOW_RES);
-    
 
-    shader.set("numLights", (int) lights.size());
+    whitelight.genDepthMap(SHADOW_RES);
+
+
+ //   shader.set("numLights", (int) lights.size());
 
     while (!glfwWindowShouldClose(window))
     {
@@ -152,22 +152,33 @@ int main( void )
             glClear(GL_DEPTH_BUFFER_BIT); // only drawing depth map
             room.draw();
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        
-        //second pass
+
         glViewport(0, 0, 800, 600);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         auto proj = glm::perspective(45.f * camera.getZoom(), aspect, near_plane, far_plane);
-        glm::mat4 view = camera.lookAt();
-
-
-        shader.use();
+        auto view = camera.lookAt();
         shader.set("projection", proj);
         shader.set("view", view);
         shader.set("model", model);
-        shader.set("lightPos", whitelight.getPosition());
-        shader.set("lightColor", whitelight.getColor());
-        shader.set("lightSpace", whitelight.proj_view);
+        lightShader.set("projection", proj);
+        lightShader.set("view", view);
+        lightShader.use();
+
+            shader.set("whitelight.lightPos", whitelight.getPosition());
+            shader.set("whitelight.lightColor", whitelight.getColor());
+            shader.set("whitelight.lightSpace", whitelight.proj_view);
+            shader.set("whitelight.shadowMap", 0);  // should be the index used in glActiveTexture, not the texture ID
+
+            // draw light using a cube
+            lightShader.set("model", whitelight.getModel());
+            lightShader.set("lightColor", whitelight.getColor());
+            cube.draw();
+
+            glActiveTexture(GL_TEXTURE0 + 0);
+            glBindTexture(GL_TEXTURE_2D, whitelight.getDepthMap());
+
+        shader.use();
         room.draw();
 
         lightShader.use();
@@ -175,8 +186,8 @@ int main( void )
         lightShader.set("view", view);
         lightShader.set("model", whitelight.getModel());
         lightShader.set("lightColor", whitelight.getColor());
-        cube.draw();  
-     
+        cube.draw();
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }

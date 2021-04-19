@@ -13,8 +13,8 @@ struct Light {
     bool enabled;
 };
 
-uniform int numLights; // number of lights
-uniform Light lights[4]; // Array of the light sources
+
+uniform Light whitelight; // Array of the light sources
 
 // Poisson Disk
 vec2 poissonDisk[16] = vec2[](
