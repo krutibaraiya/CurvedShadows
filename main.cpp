@@ -72,6 +72,7 @@ void glfw_scroll_callback(GLFWwindow* window, double xOffset, double yOffset) {
 int main( void )
 {
     float aspect = (float) 800 / (float) 600;
+    const unsigned int SHADOW_RES = 1024; 
     // Initialise GLFW
     if( !glfwInit() )
     {
@@ -110,21 +111,56 @@ int main( void )
 
     Shader shader("Shaders/vert_shader.glsl", "Shaders/frag_shader.glsl");
     Shader lightShader("Shaders/light_vert_shader.glsl", "Shaders/light_frag_shader.glsl");
+    Shader depthShader("shaders/depth_vert.glsl", "shaders/depth_frag.glsl");
 
     auto room = ObjModel("models/room.obj");
     auto cube = ObjModel("models/cube.obj");
+
+
+    unsigned int depthMapFBO = 0;
+    glGenFramebuffers(1, &depthMapFBO);
+    glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+    glDrawBuffer(GL_NONE); // don't need color buf for shadows
+    glReadBuffer(GL_NONE);
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+       
+    whitelight.genDepthMap(SHADOW_RES);
+    
+
+    shader.set("numLights", (int) lights.size());
 
     while (!glfwWindowShouldClose(window))
     {
         auto model = glm::mat4(1.0f);
         float near_plane = 1.f, far_plane = 35.f;
 
-            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            glViewport(0, 0, 800, 600);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-            auto proj = glm::perspective(45.f * camera.getZoom(), aspect, near_plane, far_plane);
-            glm::mat4 view = camera.lookAt();
+        //first pass//render with respect to the light
+            auto lightProj = glm::perspective(30.f, aspect, near_plane, far_plane);
+            auto lightView = whitelight.lookAt();
+            whitelight.proj_view = lightProj * lightView;
+            depthShader.use();
+            depthShader.set("model", model);
+            depthShader.set("lightSpace", whitelight.proj_view);
+
+            // attach depth map texture to framebuffer and render the scene from light's PoV
+            glViewport(0, 0, SHADOW_RES, SHADOW_RES);
+            glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, whitelight.getDepthMap(), 0);
+            glClear(GL_DEPTH_BUFFER_BIT); // only drawing depth map
+            room.draw();
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        
+        //second pass
+        glViewport(0, 0, 800, 600);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        auto proj = glm::perspective(45.f * camera.getZoom(), aspect, near_plane, far_plane);
+        glm::mat4 view = camera.lookAt();
+
+
         shader.use();
         shader.set("projection", proj);
         shader.set("view", view);
@@ -140,10 +176,7 @@ int main( void )
         lightShader.set("model", whitelight.getModel());
         lightShader.set("lightColor", whitelight.getColor());
         cube.draw();  
-      
-            
-       
-
+     
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
