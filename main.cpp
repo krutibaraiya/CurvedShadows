@@ -19,7 +19,7 @@ using namespace glm;
 #include "Light.h"
 
 Camera camera({10, 10, -5}, {0, 0, 0});
-Light whitelight =  {{10,  15, 15},  {1, 0, 1}};
+Light whitelight =  {{10,  15, 15},  {1, 1, 1}};
 
 //glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 bool isDragging = false;
@@ -113,7 +113,7 @@ int main( void )
     Shader lightShader("Shaders/light_vert_shader.glsl", "Shaders/light_frag_shader.glsl");
     Shader depthShader("Shaders/depth_vert.glsl", "Shaders/depth_frag.glsl");
 
-    //auto room = ObjModel("models/room.obj");
+    auto room = ObjModel("models/room.obj");
     auto donut = ObjModel("models/donut.obj");
     auto cube = ObjModel("models/cube.obj");
 
@@ -135,7 +135,7 @@ int main( void )
     {
         auto model = glm::mat4(1.0f);
         //model = glm::translate(model, glm::vec3(-0.4f,0.2f,0.0f));
-        model = glm::scale(model, glm::vec3(40)); // a smaller cube
+        //model = glm::scale(model, glm::vec3(40)); // a smaller cube
         float near_plane = 1.f, far_plane = 35.f;
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -153,8 +153,8 @@ int main( void )
             glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, whitelight.getDepthMap(), 0);
             glClear(GL_DEPTH_BUFFER_BIT); // only drawing depth map
-            //room.draw();
-            donut.draw(shader);
+            room.draw();
+            //donut.draw();
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
         glViewport(0, 0, 800, 600);
@@ -177,21 +177,21 @@ int main( void )
             // draw light using a cube
             lightShader.set("model", whitelight.getModel());
             lightShader.set("lightColor", whitelight.getColor());
-            cube.draw(lightShader);
+            cube.draw();
 
             glActiveTexture(GL_TEXTURE0 + 0);
             glBindTexture(GL_TEXTURE_2D, whitelight.getDepthMap());
 
         shader.use();
-        //room.draw();
-        donut.draw(shader);
+        room.draw();
+        //donut.draw();
 
         lightShader.use();
         lightShader.set("projection", proj);
         lightShader.set("view", view);
         lightShader.set("model", whitelight.getModel());
         lightShader.set("lightColor", whitelight.getColor());
-        cube.draw(lightShader);
+        cube.draw();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

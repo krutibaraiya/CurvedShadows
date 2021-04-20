@@ -15,6 +15,7 @@ Shader::Shader(const std::string &vertPath, const std::string &fragPath) {
         glGetProgramInfoLog(id, 512, nullptr, infoLog);
         std::string msg = std::string("Program linking failed: ") + infoLog;
         throw std::runtime_error(msg);
+
     }
     glDeleteShader(vertShader);
     glDeleteShader(fragShader);
