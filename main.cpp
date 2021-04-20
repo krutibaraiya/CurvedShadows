@@ -116,6 +116,7 @@ int main( void )
     auto room = ObjModel("models/room.obj");
     auto donut = ObjModel("models/donut.obj");
     auto cube = ObjModel("models/cube.obj");
+    auto curvedobjects =ObjModel("model/curvedobjects.obj");
 
 
     unsigned int depthMapFBO = 0;
@@ -153,7 +154,8 @@ int main( void )
             glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, whitelight.getDepthMap(), 0);
             glClear(GL_DEPTH_BUFFER_BIT); // only drawing depth map
-            room.draw();
+            //room.draw();
+            curvedobjects.draw();
             //donut.draw();
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
@@ -183,7 +185,8 @@ int main( void )
             glBindTexture(GL_TEXTURE_2D, whitelight.getDepthMap());
 
         shader.use();
-        room.draw();
+        curvedobjects.draw();
+        //room.draw();
         //donut.draw();
 
         lightShader.use();
