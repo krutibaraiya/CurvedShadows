@@ -136,7 +136,8 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
         // return a mesh object created from the extracted mesh data
     return Mesh(vertices, indices,textures);
 }
-std::vector<Texture> ObjModel::loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName)
+
+std::vector<Texture> ObjModel::loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName)
     {
         std::vector<Texture> textures;
         for(unsigned int i = 0; i < mat->GetTextureCount(type); i++)
@@ -174,7 +175,7 @@ void ObjModel::draw(Shader &shader) {
     }
 }
 
-Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> &indices,, const std::vector<Texture> &textures)
+Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> &indices, const std::vector<Texture> &textures)
 : vertices(vertices),indices(indices),textures(textures)
 {
     glGenVertexArrays(1, &vao);
@@ -230,7 +231,7 @@ void Mesh::draw(Shader &shader) {
                 number = std::to_string(heightNr++); // transfer unsigned int to stream
 
             // now set the sampler to the correct texture unit
-            glUniform1i(glGetUniformLocation(shader.ID, (name + number).c_str()), i);
+            glUniform1i(glGetUniformLocation(shader.id, (name + number).c_str()), i);
             // and finally bind the texture
             glBindTexture(GL_TEXTURE_2D, textures[i].id);
         }
