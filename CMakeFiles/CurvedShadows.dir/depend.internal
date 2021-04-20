@@ -11,6 +11,8 @@ CMakeFiles/CurvedShadows.dir/Light.cpp.o
 CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o
  /home/sristi/CurvedShadows/ObjModel.cpp
  /home/sristi/CurvedShadows/ObjModel.h
+ /home/sristi/CurvedShadows/Shader.h
+ /home/sristi/CurvedShadows/stb_image.h
 CMakeFiles/CurvedShadows.dir/Parser.cpp.o
  /home/sristi/CurvedShadows/Parser.cpp
 CMakeFiles/CurvedShadows.dir/Shader.cpp.o

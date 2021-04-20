@@ -10,6 +10,8 @@ CMakeFiles/CurvedShadows.dir/Light.cpp.o: Shader.h
 
 CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o: ObjModel.cpp
 CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o: ObjModel.h
+CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o: Shader.h
+CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o: stb_image.h
 
 CMakeFiles/CurvedShadows.dir/Parser.cpp.o: Parser.cpp
 

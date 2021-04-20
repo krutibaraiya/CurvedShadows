@@ -5,7 +5,7 @@
 #include<string>
 #include <glm/glm.hpp>
 #include <assimp/scene.h>
-
+#include "Shader.h"
 /**
  * @brief Vertex representation structure
  */
@@ -64,12 +64,12 @@ class ObjModel {
 
     /**
      * @brief Method to process a mesh
-     * @param mesh Pointer to the mesh 
+     * @param mesh Pointer to the mesh
      * @param scene Pointer to the scene
      */
     Mesh processMesh(aiMesh* mesh, const aiScene* scene);
 
-    std::vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName);
+    std::vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, std::string typeName);
 
 public:
     /**

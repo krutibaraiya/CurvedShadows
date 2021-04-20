@@ -8,7 +8,7 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
+#include <iostream>
 #include "ObjModel.h"
 unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma)
 {
@@ -85,9 +85,9 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
         vertex.normal = {mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z};
         if (mesh->mTextureCoords[0]) {
             glm::vec2 vec;
-                // a vertex can contain up to 8 different texture coordinates. We thus make the assumption that we won't 
+                // a vertex can contain up to 8 different texture coordinates. We thus make the assumption that we won't
                 // use models where a vertex can have multiple texture coordinates so we always take the first set (0).
-                vec.x = mesh->mTextureCoords[0][i].x; 
+                vec.x = mesh->mTextureCoords[0][i].x;
                 vec.y = mesh->mTextureCoords[0][i].y;
                 vertex.texcoords = vec;
                 // tangent
@@ -112,9 +112,9 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
         }
     }
      // process materials
-        aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];    
+        aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
         // we assume a convention for sampler names in the shaders. Each diffuse texture should be named
-        // as 'texture_diffuseN' where N is a sequential number ranging from 1 to MAX_SAMPLER_NUMBER. 
+        // as 'texture_diffuseN' where N is a sequential number ranging from 1 to MAX_SAMPLER_NUMBER.
         // Same applies to other texture as the following list summarizes:
         // diffuse: texture_diffuseN
         // specular: texture_specularN
@@ -132,7 +132,7 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
         // 4. height maps
         std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
         textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
-        
+
         // return a mesh object created from the extracted mesh data
     return Mesh(vertices, indices,textures);
 }
@@ -174,7 +174,7 @@ void ObjModel::draw(Shader &shader) {
     }
 }
 
-Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> &indices,, const std::vector<Texture> &textures) 
+Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> &indices,, const std::vector<Texture> &textures)
 : vertices(vertices),indices(indices),textures(textures)
 {
     glGenVertexArrays(1, &vao);
@@ -196,7 +196,7 @@ Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> 
 
     glEnableVertexAttribArray(2);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) offsetof(Vertex, uv));
-    
+
     // vertex tangent
     glEnableVertexAttribArray(3);
     glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Tangent));
