@@ -19,7 +19,7 @@ using namespace glm;
 #include "Light.h"
 
 Camera camera({10, 10, -5}, {0, 0, 0});
-Light whitelight =  {{10,  15, 15},  {1, 1, 1}};
+Light whitelight =  {{10,  15, 10},  {1, 0.6, 0.6}};
 
 //glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 bool isDragging = false;
@@ -104,6 +104,10 @@ int main( void )
         glfwTerminate();
         return -1;
     }
+    glfwSetKeyCallback(window, glfw_key_callback);
+    glfwSetMouseButtonCallback(window, glfw_mouse_button_callback);
+    glfwSetCursorPosCallback(window, glfw_cursor_position_callback);
+    glfwSetScrollCallback(window, glfw_scroll_callback);
 
     glEnable(GL_DEPTH_TEST); // enable depth-testing
     glDepthFunc(GL_LESS);
@@ -113,10 +117,10 @@ int main( void )
     Shader lightShader("Shaders/light_vert_shader.glsl", "Shaders/light_frag_shader.glsl");
     Shader depthShader("Shaders/depth_vert.glsl", "Shaders/depth_frag.glsl");
 
-    auto room = ObjModel("models/room.obj");
-    auto donut = ObjModel("models/donut.obj");
+    
+    //auto donut = ObjModel("models/donut.obj");
     auto cube = ObjModel("models/cube.obj");
-    auto curvedobjects =ObjModel("model/curvedobjects.obj");
+    auto objects =ObjModel("models/objects.obj");
 
 
     unsigned int depthMapFBO = 0;
@@ -135,11 +139,9 @@ int main( void )
     while (!glfwWindowShouldClose(window))
     {
         auto model = glm::mat4(1.0f);
-        //model = glm::translate(model, glm::vec3(-0.4f,0.2f,0.0f));
-        //model = glm::scale(model, glm::vec3(40)); // a smaller cube
         float near_plane = 1.f, far_plane = 35.f;
 
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         //first pass//render with respect to the light
             auto lightProj = glm::perspective(30.f, aspect, near_plane, far_plane);
@@ -149,13 +151,12 @@ int main( void )
             depthShader.set("model", model);
             depthShader.set("lightSpace", whitelight.proj_view);
 
-            // attach depth map texture to framebuffer and render the scene from light's PoV
             glViewport(0, 0, SHADOW_RES, SHADOW_RES);
             glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, whitelight.getDepthMap(), 0);
-            glClear(GL_DEPTH_BUFFER_BIT); // only drawing depth map
-            //room.draw();
-            curvedobjects.draw();
+            glClear(GL_DEPTH_BUFFER_BIT); 
+            
+            objects.draw();
             //donut.draw();
             glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
@@ -171,22 +172,21 @@ int main( void )
         lightShader.set("view", view);
         lightShader.use();
 
-            shader.set("whitelight.lightPos", whitelight.getPosition());
-            shader.set("whitelight.lightColor", whitelight.getColor());
-            shader.set("whitelight.lightSpace", whitelight.proj_view);
-            shader.set("whitelight.shadowMap", 0);  // should be the index used in glActiveTexture, not the texture ID
+        shader.set("whitelight.lightPos", whitelight.getPosition());
+        shader.set("whitelight.lightColor", whitelight.getColor());
+        shader.set("whitelight.lightSpace", whitelight.proj_view);
+        shader.set("whitelight.shadowMap", 0);  
 
-            // draw light using a cube
-            lightShader.set("model", whitelight.getModel());
-            lightShader.set("lightColor", whitelight.getColor());
-            cube.draw();
+        lightShader.set("model", whitelight.getModel());
+        lightShader.set("lightColor", whitelight.getColor());
+        cube.draw();
 
-            glActiveTexture(GL_TEXTURE0 + 0);
-            glBindTexture(GL_TEXTURE_2D, whitelight.getDepthMap());
+        glActiveTexture(GL_TEXTURE0 + 0);
+        glBindTexture(GL_TEXTURE_2D, whitelight.getDepthMap());
 
         shader.use();
-        curvedobjects.draw();
-        //room.draw();
+        objects.draw();
+        
         //donut.draw();
 
         lightShader.use();
@@ -194,6 +194,7 @@ int main( void )
         lightShader.set("view", view);
         lightShader.set("model", whitelight.getModel());
         lightShader.set("lightColor", whitelight.getColor());
+        
         cube.draw();
 
         glfwSwapBuffers(window);

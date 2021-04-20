@@ -5,6 +5,7 @@ Light::Light(const glm::vec3 &position, const glm::vec3 &color, const glm::vec3 
         color(color),
         target(target),
         model(glm::translate(glm::mat4(1), position)),
+        //model = glm::scale(model, glm::vec3(40)); // a smaller cube
         proj_view(glm::mat4(1)),
         isEnabled(true) {}
 
