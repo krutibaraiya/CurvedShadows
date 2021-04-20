@@ -5,10 +5,11 @@
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+
 #include "ObjModel.h"
-unsigned int TextureFromFile(const char *path, const string &directory, bool gamma)
+unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma)
 {
-    string filename = string(path);
+    std::string filename = string(path);
     filename = directory + '/' + filename;
 
     unsigned int textureID;
@@ -84,19 +85,19 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
                 // use models where a vertex can have multiple texture coordinates so we always take the first set (0).
                 vec.x = mesh->mTextureCoords[0][i].x; 
                 vec.y = mesh->mTextureCoords[0][i].y;
-                vertex.TexCoords = vec;
+                vertex.texcoords = vec;
                 // tangent
-                vector.x = mesh->mTangents[i].x;
-                vector.y = mesh->mTangents[i].y;
-                vector.z = mesh->mTangents[i].z;
-                vertex.Tangent = vector;
+                vec.x = mesh->mTangents[i].x;
+                vec.y = mesh->mTangents[i].y;
+                vec.z = mesh->mTangents[i].z;
+                vertex.tangent = vec;
                 // bitangent
-                vector.x = mesh->mBitangents[i].x;
-                vector.y = mesh->mBitangents[i].y;
-                vector.z = mesh->mBitangents[i].z;
-                vertex.Bitangent = vector;
+                vec.x = mesh->mBitangents[i].x;
+                vec.y = mesh->mBitangents[i].y;
+                vec.z = mesh->mBitangents[i].z;
+                vertex.bitangent = vec;
         } else {
-            vertex.TexCoords = glm::vec2(0.0f, 0.0f);
+            vertex.texcoords = glm::vec2(0.0f, 0.0f);
         }
         vertices.push_back(vertex);
     }
@@ -116,10 +117,10 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
         // normal: texture_normalN
 
         // 1. diffuse maps
-        vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
+        std::vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
         textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
         // 2. specular maps
-        vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
+        std::vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
         textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
         // 3. normal maps
         std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
@@ -131,9 +132,9 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
         // return a mesh object created from the extracted mesh data
     return Mesh(vertices, indices,textures);
 }
-vector<Texture> ObjModel::loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName)
+std::vector<Texture> ObjModel::loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName)
     {
-        vector<Texture> textures;
+        std::vector<Texture> textures;
         for(unsigned int i = 0; i < mat->GetTextureCount(type); i++)
         {
             aiString str;
@@ -213,8 +214,8 @@ void Mesh::draw(Shader &shader) {
         {
             glActiveTexture(GL_TEXTURE0 + i); // active proper texture unit before binding
             // retrieve texture number (the N in diffuse_textureN)
-            string number;
-            string name = textures[i].type;
+            std::string number;
+            std::string name = textures[i].type;
             if(name == "texture_diffuse")
                 number = std::to_string(diffuseNr++);
             else if(name == "texture_specular")

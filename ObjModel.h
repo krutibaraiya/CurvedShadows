@@ -19,8 +19,8 @@ struct Vertex {
 
 struct Texture {
     unsigned int id;
-    string type;
-    string path;
+    std::string type;
+    std::string path;
 };
 
 /**
@@ -45,8 +45,8 @@ public:
 
 class ObjModel {
     std::vector<Mesh> meshes;
-    vector<Texture> textures_loaded;
-    string directory;
+    std::vector<Texture> textures_loaded;
+    std::string directory;
 
     /**
      * @brief Parse and load the .obj file using ASSIMP.
@@ -68,7 +68,7 @@ class ObjModel {
      */
     Mesh processMesh(aiMesh* mesh, const aiScene* scene);
 
-    vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName);
+    std::vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName);
 
 public:
     /**

@@ -114,6 +114,7 @@ int main( void )
     Shader depthShader("Shaders/depth_vert.glsl", "Shaders/depth_frag.glsl");
 
     auto room = ObjModel("models/room.obj");
+    auto donut = ObjModel("models/donut.obj");
     auto cube = ObjModel("models/cube.obj");
 
 
@@ -133,6 +134,8 @@ int main( void )
     while (!glfwWindowShouldClose(window))
     {
         auto model = glm::mat4(1.0f);
+        //model = glm::translate(model, glm::vec3(-0.4f,0.2f,0.0f));
+        model = glm::scale(model, glm::vec3(40)); // a smaller cube
         float near_plane = 1.f, far_plane = 35.f;
 
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -179,7 +182,8 @@ int main( void )
             glBindTexture(GL_TEXTURE_2D, whitelight.getDepthMap());
 
         shader.use();
-        room.draw();
+        //room.draw();
+        donut.draw();
 
         lightShader.use();
         lightShader.set("projection", proj);

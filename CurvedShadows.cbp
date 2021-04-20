@@ -9,7 +9,6 @@
 		<Build>
 			<Target title="all">
 				<Option output="CurvedShadows" prefix_auto="0" extension_auto="0" />
-				<Option working_dir="" />
 				<Option object_output="/home/sristi/CurvedShadows/.objs" />
 				<Option type="1" />
 				<Option compiler="gcc" />
