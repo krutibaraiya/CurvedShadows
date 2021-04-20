@@ -13,7 +13,7 @@ struct Vertex {
     glm::vec3 position; // xyz coordinates
     glm::vec3 normal;   // Normal vector
     glm::vec2 texcoords;
-    glm::vec2 tangent;
+    glm::vec3 tangent;
     glm::vec3 bitangent;
 };
 
@@ -40,13 +40,14 @@ public:
      */
     Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> &indices,const std::vector<Texture> &textures);
 
-    void draw();
+    void draw(Shader &shader);
 };
 
 class ObjModel {
     std::vector<Mesh> meshes;
     std::vector<Texture> textures_loaded;
     std::string directory;
+    bool gammaCorrection;
 
     /**
      * @brief Parse and load the .obj file using ASSIMP.
@@ -80,7 +81,7 @@ public:
     /**
      * @brief Draws all meshes of the model
      */
-    void draw();
+    void draw(Shader &shader);
 };
 
 #endif //OBJMODEL_H

@@ -6,6 +6,9 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
 #include "ObjModel.h"
 unsigned int TextureFromFile(const char *path, const std::string &directory, bool gamma)
 {
@@ -77,6 +80,7 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
 
     for (int i = 0; i < mesh->mNumVertices; ++i) {
         Vertex vertex{};
+        glm::vec3 vector;
         vertex.position = {mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z};
         vertex.normal = {mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z};
         if (mesh->mTextureCoords[0]) {
@@ -87,15 +91,15 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
                 vec.y = mesh->mTextureCoords[0][i].y;
                 vertex.texcoords = vec;
                 // tangent
-                vec.x = mesh->mTangents[i].x;
-                vec.y = mesh->mTangents[i].y;
-                vec.z = mesh->mTangents[i].z;
-                vertex.tangent = vec;
+                vector.x = mesh->mTangents[i].x;
+                vector.y = mesh->mTangents[i].y;
+                vector.z = mesh->mTangents[i].z;
+                vertex.tangent = vector;
                 // bitangent
-                vec.x = mesh->mBitangents[i].x;
-                vec.y = mesh->mBitangents[i].y;
-                vec.z = mesh->mBitangents[i].z;
-                vertex.bitangent = vec;
+                vector.x = mesh->mBitangents[i].x;
+                vector.y = mesh->mBitangents[i].y;
+                vector.z = mesh->mBitangents[i].z;
+                vertex.bitangent = vector;
         } else {
             vertex.texcoords = glm::vec2(0.0f, 0.0f);
         }
