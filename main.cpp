@@ -126,15 +126,13 @@ int main( void )
     unsigned int depthMapFBO = 0;
     glGenFramebuffers(1, &depthMapFBO);
     glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
-    glDrawBuffer(GL_NONE); // don't need color buf for shadows
+    glDrawBuffer(GL_NONE); 
     glReadBuffer(GL_NONE);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 
     whitelight.genDepthMap(SHADOW_RES);
 
-
- //   shader.set("numLights", (int) lights.size());
 
     while (!glfwWindowShouldClose(window))
     {
@@ -143,22 +141,20 @@ int main( void )
 
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-        //first pass//render with respect to the light
-            auto lightProj = glm::perspective(30.f, aspect, near_plane, far_plane);
-            auto lightView = whitelight.lookAt();
-            whitelight.proj_view = lightProj * lightView;
-            depthShader.use();
-            depthShader.set("model", model);
-            depthShader.set("lightSpace", whitelight.proj_view);
+        auto lightProj = glm::perspective(30.f, aspect, near_plane, far_plane);
+        auto lightView = whitelight.lookAt();
+        whitelight.proj_view = lightProj * lightView;
+        depthShader.use();
+        depthShader.set("model", model);
+        depthShader.set("lightSpace", whitelight.proj_view);
 
-            glViewport(0, 0, SHADOW_RES, SHADOW_RES);
-            glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
-            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, whitelight.getDepthMap(), 0);
-            glClear(GL_DEPTH_BUFFER_BIT); 
-            
-            objects.draw();
-            //donut.draw();
-            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        glViewport(0, 0, SHADOW_RES, SHADOW_RES);
+        glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, whitelight.getDepthMap(), 0);
+        glClear(GL_DEPTH_BUFFER_BIT); 
+        
+        objects.draw();
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
         glViewport(0, 0, 800, 600);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -186,8 +182,6 @@ int main( void )
 
         shader.use();
         objects.draw();
-        
-        //donut.draw();
 
         lightShader.use();
         lightShader.set("projection", proj);
