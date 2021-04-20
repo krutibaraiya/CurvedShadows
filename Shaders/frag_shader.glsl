@@ -3,6 +3,7 @@ out vec4 FragColor; // Output fragment color
 
 in vec3 Normal; // Normal vector
 in vec4 FragPos; // Input fragment position
+in vec2 TexCoords;
 
 // Light class
 struct Light {
@@ -73,5 +74,5 @@ void main() {
         float visibility = getVisibility(fragPosLightSpace, norm, lightDir, whitelight.shadowMap);
         color += (ambient + visibility * diffuse);
  
-    FragColor = vec4(color, 1);
+    FragColor = mix( vec4(color, 1) , texture(texture_diffuse1 , TexCoords),0.2);
 }

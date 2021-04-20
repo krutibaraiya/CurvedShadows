@@ -2,6 +2,7 @@
 #define OBJMODEL_H
 
 #include <vector>
+#include<string>
 #include <glm/glm.hpp>
 #include <assimp/scene.h>
 
@@ -11,7 +12,15 @@
 struct Vertex {
     glm::vec3 position; // xyz coordinates
     glm::vec3 normal;   // Normal vector
-    glm::vec2 uv;       // uv coordinates
+    glm::vec2 texcoords;
+    glm::vec2 tangent;
+    glm::vec3 bitangent;
+};
+
+struct Texture {
+    unsigned int id;
+    string type;
+    string path;
 };
 
 /**
@@ -20,6 +29,7 @@ struct Vertex {
 class Mesh {
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
+    std::vector<Texture>textures;
     unsigned int vao{0}, vbo{0}, ebo{0};
 
 public:
@@ -28,13 +38,15 @@ public:
      * @param vertices List of vertices of the model
      * @param indices Indices of the faces
      */
-    Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> &indices);
+    Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> &indices,const std::vector<Texture> &textures);
 
     void draw();
 };
 
 class ObjModel {
     std::vector<Mesh> meshes;
+    vector<Texture> textures_loaded;
+    string directory;
 
     /**
      * @brief Parse and load the .obj file using ASSIMP.
@@ -55,6 +67,8 @@ class ObjModel {
      * @param scene Pointer to the scene
      */
     Mesh processMesh(aiMesh* mesh, const aiScene* scene);
+
+    vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName);
 
 public:
     /**
