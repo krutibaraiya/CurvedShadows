@@ -1,11 +1,13 @@
 #version 330 core
-out vec4 FragColor; // Output fragment color
+out vec4 FragColor; /// Output fragment color
 
-in vec3 Normal; // Normal vector
-in vec4 FragPos; // Input fragment position
+in vec3 Normal; /// Normal vector
+in vec4 FragPos; /// Input fragment position
 
 
-// Light class
+/**
+* Light class
+*/
 struct Light {
     vec3 lightPos;
     vec3 lightColor;
@@ -15,9 +17,9 @@ struct Light {
 };
 
 
-uniform Light whitelight; // Array of the light sources
+uniform Light whitelight; /// Array of the light sources
 
-// Poisson Disk
+/// Poisson Disk
 vec2 poissonDisk[16] = vec2[](
 vec2(-0.94201624, -0.39906216),
 vec2(0.94558609, -0.76890725),
@@ -37,18 +39,20 @@ vec2(0.19984126, 0.78641367),
 vec2(0.14383161, -0.14100790)
 );
 
-// Method to get the degree of visibility of a fragment
+/**
+ * Method to get the degree of visibility of a fragment
+ */
 float getVisibility(vec4 fragPosLightSpace, vec3 normal, vec3 lightDir, sampler2D shadowMap) {
-    // perform perspective divide
+    /// perform perspective divide
     vec3 projCoords = fragPosLightSpace.xyz / fragPosLightSpace.w;
     FragColor = vec4(vec3(fragPosLightSpace.z), 1);
 
-    // normalize to [0,1] range
-    // full formula: (((far-near) * coord) + near + far) / 2.0
-    // we have far = 1, near = 0
+    /// normalize to [0,1] range
+    /// full formula: (((far-near) * coord) + near + far) / 2.0
+    /// we have far = 1, near = 0
     projCoords = projCoords * 0.5 + 0.5;
 
-    // declare a bias to deal with shadow acne
+    /// declare a bias to deal with shadow acne
     float cosTheta = clamp(dot(normal, lightDir), 0.0, 1.0);
     float bias = clamp(0.0005 * tan(acos(cosTheta)), 0, 0.01);
     projCoords.z -= bias;
@@ -61,7 +65,9 @@ float getVisibility(vec4 fragPosLightSpace, vec3 normal, vec3 lightDir, sampler2
     }
     return visibility;
 }
-
+/**
+*@brief method to define light properties
+*/
 void main() {
     vec3 norm = normalize(Normal);
     vec3 color = vec3(0);

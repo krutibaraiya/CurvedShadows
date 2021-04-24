@@ -1,0 +1,229 @@
+\hypertarget{main_8cpp}{}\doxysection{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$G\+L/glew.\+h$>$}\newline
+{\ttfamily \#include $<$G\+L\+F\+W/glfw3.\+h$>$}\newline
+{\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}Shader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Camera.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Obj\+Model.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Light.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_ae960f8e1e3b85e2af9774e881b62f552}{glfw\+\_\+key\+\_\+callback}} (G\+L\+F\+Wwindow $\ast$\mbox{\hyperlink{main_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}}, int key, int scancode, int action, int mods)
+\begin{DoxyCompactList}\small\item\em Method to define the keyboard keys for camera movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ad038b176bfa3828345ae6f7702ef3c01}{glfw\+\_\+mouse\+\_\+button\+\_\+callback}} (G\+L\+F\+Wwindow $\ast$\mbox{\hyperlink{main_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}}, int button, int action, int mods)
+\begin{DoxyCompactList}\small\item\em Method to define the mouse movement for camera movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ad259b221f8aa449dae5ae5d3df6fa34d}{glfw\+\_\+cursor\+\_\+position\+\_\+callback}} (G\+L\+F\+Wwindow $\ast$\mbox{\hyperlink{main_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}}, double x\+Pos, double y\+Pos)
+\begin{DoxyCompactList}\small\item\em Method to drag the scene for cursor movement. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ad93ed58d1e5b14fc08ebc1d02237f5a4}{glfw\+\_\+scroll\+\_\+callback}} (G\+L\+F\+Wwindow $\ast$\mbox{\hyperlink{main_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}}, double x\+Offset, double y\+Offset)
+\begin{DoxyCompactList}\small\item\em method to define the scroll movement \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+G\+L\+F\+Wwindow $\ast$ \mbox{\hyperlink{main_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}}
+\begin{DoxyCompactList}\small\item\em Include standard headers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_camera}{Camera}} \mbox{\hyperlink{main_8cpp_ab2a7710b5854654216c328fe5d9dea86}{camera}} (\{10, 10, -\/5\}, \{0, 0, 0\})
+\begin{DoxyCompactList}\small\item\em Initialising \mbox{\hyperlink{class_camera}{Camera}} position and target. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_light}{Light}} \mbox{\hyperlink{main_8cpp_abcabe6e49b4028ca9a85ecc4deb48581}{whitelight}} = \{\{10, 15, 10\}, \{1, 0.\+6, 0.\+6\}\}
+\item 
+bool \mbox{\hyperlink{main_8cpp_a1b8ff537c6be1b278e59393efc2f53c4}{is\+Dragging}} = false
+\item 
+double \mbox{\hyperlink{main_8cpp_ac5536c722789a37f9a1100b2a996b194}{dragX}} = -\/1
+\item 
+double \mbox{\hyperlink{main_8cpp_afd86efe901423bf23778fb75fab243ac}{dragY}} = -\/1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_ad259b221f8aa449dae5ae5d3df6fa34d}\label{main_8cpp_ad259b221f8aa449dae5ae5d3df6fa34d}} 
+\index{main.cpp@{main.cpp}!glfw\_cursor\_position\_callback@{glfw\_cursor\_position\_callback}}
+\index{glfw\_cursor\_position\_callback@{glfw\_cursor\_position\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{glfw\_cursor\_position\_callback()}{glfw\_cursor\_position\_callback()}}
+{\footnotesize\ttfamily void glfw\+\_\+cursor\+\_\+position\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{double}]{x\+Pos,  }\item[{double}]{y\+Pos }\end{DoxyParamCaption})}
+
+
+
+Method to drag the scene for cursor movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & G\+L\+FW window \\
+\hline
+{\em x\+Pos} & x coordinate of the cursor \\
+\hline
+{\em y\+Pos} & y coordinate of the cursor \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 70 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ae960f8e1e3b85e2af9774e881b62f552}\label{main_8cpp_ae960f8e1e3b85e2af9774e881b62f552}} 
+\index{main.cpp@{main.cpp}!glfw\_key\_callback@{glfw\_key\_callback}}
+\index{glfw\_key\_callback@{glfw\_key\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{glfw\_key\_callback()}{glfw\_key\_callback()}}
+{\footnotesize\ttfamily void glfw\+\_\+key\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{key,  }\item[{int}]{scancode,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})}
+
+
+
+Method to define the keyboard keys for camera movement. 
+
+
+
+Definition at line 32 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ad038b176bfa3828345ae6f7702ef3c01}\label{main_8cpp_ad038b176bfa3828345ae6f7702ef3c01}} 
+\index{main.cpp@{main.cpp}!glfw\_mouse\_button\_callback@{glfw\_mouse\_button\_callback}}
+\index{glfw\_mouse\_button\_callback@{glfw\_mouse\_button\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{glfw\_mouse\_button\_callback()}{glfw\_mouse\_button\_callback()}}
+{\footnotesize\ttfamily void glfw\+\_\+mouse\+\_\+button\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{button,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})}
+
+
+
+Method to define the mouse movement for camera movement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & G\+L\+FW window \\
+\hline
+{\em button} & Mouse click \\
+\hline
+{\em action} & action of mouse button \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 57 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_ad93ed58d1e5b14fc08ebc1d02237f5a4}\label{main_8cpp_ad93ed58d1e5b14fc08ebc1d02237f5a4}} 
+\index{main.cpp@{main.cpp}!glfw\_scroll\_callback@{glfw\_scroll\_callback}}
+\index{glfw\_scroll\_callback@{glfw\_scroll\_callback}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{glfw\_scroll\_callback()}{glfw\_scroll\_callback()}}
+{\footnotesize\ttfamily void glfw\+\_\+scroll\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{double}]{x\+Offset,  }\item[{double}]{y\+Offset }\end{DoxyParamCaption})}
+
+
+
+method to define the scroll movement 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & G\+L\+FW window \\
+\hline
+{\em x\+Offset} & x coordinate of the scroll \\
+\hline
+{\em y\+Offset} & y coordinate of the scroll \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8cpp_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialise G\+L\+FW
+
+Open a window and create its Open\+GL context
+
+Initialize G\+L\+EW
+
+enable depth-\/testing
+
+\mbox{\hyperlink{class_shader}{Shader}} objects
+
+\mbox{\hyperlink{class_light}{Light}} source
+
+Objects in the scene
+
+1st pass Generate the depth maps for the light source
+
+Binding the depth buffer to frame buffer and rendering the scene with respect to light source
+
+rendering the objects
+
+unbinding the frame buffer
+
+2nd pass Rendering the scene with shadow with respect to the viewer
+
+defining the perspective for viewer
+
+setting the uniform variables in shaders
+
+Definition at line 89 of file main.\+cpp.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_ab2a7710b5854654216c328fe5d9dea86}\label{main_8cpp_ab2a7710b5854654216c328fe5d9dea86}} 
+\index{main.cpp@{main.cpp}!camera@{camera}}
+\index{camera@{camera}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_camera}{Camera}} camera(\{10, 10, -\/5\}, \{0, 0, 0\})}
+
+
+
+Initialising \mbox{\hyperlink{class_camera}{Camera}} position and target. 
+
+\mbox{\Hypertarget{main_8cpp_ac5536c722789a37f9a1100b2a996b194}\label{main_8cpp_ac5536c722789a37f9a1100b2a996b194}} 
+\index{main.cpp@{main.cpp}!dragX@{dragX}}
+\index{dragX@{dragX}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dragX}{dragX}}
+{\footnotesize\ttfamily double dragX = -\/1}
+
+
+
+Definition at line 26 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_afd86efe901423bf23778fb75fab243ac}\label{main_8cpp_afd86efe901423bf23778fb75fab243ac}} 
+\index{main.cpp@{main.cpp}!dragY@{dragY}}
+\index{dragY@{dragY}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{dragY}{dragY}}
+{\footnotesize\ttfamily double dragY = -\/1}
+
+
+
+Definition at line 26 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a1b8ff537c6be1b278e59393efc2f53c4}\label{main_8cpp_a1b8ff537c6be1b278e59393efc2f53c4}} 
+\index{main.cpp@{main.cpp}!isDragging@{isDragging}}
+\index{isDragging@{isDragging}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{isDragging}{isDragging}}
+{\footnotesize\ttfamily bool is\+Dragging = false}
+
+
+
+Definition at line 25 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_abcabe6e49b4028ca9a85ecc4deb48581}\label{main_8cpp_abcabe6e49b4028ca9a85ecc4deb48581}} 
+\index{main.cpp@{main.cpp}!whitelight@{whitelight}}
+\index{whitelight@{whitelight}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{whitelight}{whitelight}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_light}{Light}} whitelight = \{\{10, 15, 10\}, \{1, 0.\+6, 0.\+6\}\}}
+
+
+
+Definition at line 22 of file main.\+cpp.
+
+\mbox{\Hypertarget{main_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}\label{main_8cpp_a80de27bd7dc4e2b2ad3d5895b97a70f0}} 
+\index{main.cpp@{main.cpp}!window@{window}}
+\index{window@{window}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{window}{window}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow$\ast$ window}
+
+
+
+Include standard headers. 
+
+Include G\+L\+EW Include G\+L\+FW 
+
+Definition at line 9 of file main.\+cpp.
+

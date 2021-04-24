@@ -9,9 +9,9 @@
  * @brief Vertex representation structure
  */
 struct Vertex {
-    glm::vec3 position; // xyz coordinates
-    glm::vec3 normal;   // Normal vector
-    glm::vec2 uv;       // uv coordinates
+    glm::vec3 position; /// xyz coordinates
+    glm::vec3 normal;   /// Normal vector
+    glm::vec2 uv;       /// uv coordinates
 };
 
 /**
@@ -33,6 +33,9 @@ public:
     void draw();
 };
 
+/**
+ * @brief Class defined to define the object model
+ */
 class ObjModel {
     std::vector<Mesh> meshes;
 
@@ -69,4 +72,4 @@ public:
     void draw();
 };
 
-#endif //OBJMODEL_H
+#endif

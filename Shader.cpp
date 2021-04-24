@@ -2,6 +2,11 @@
 #include <sstream>
 #include "Shader.h"
 
+/**
+ * Constructor to the class Shader
+ * @param vertPath path to the vertex shader file
+ * @param fragPath path to the fragment shader file
+ */
 Shader::Shader(const std::string &vertPath, const std::string &fragPath) {
     GLuint vertShader = compileShader(vertPath, GL_VERTEX_SHADER), fragShader = compileShader(fragPath, GL_FRAGMENT_SHADER);
     id = glCreateProgram();
@@ -21,6 +26,10 @@ Shader::Shader(const std::string &vertPath, const std::string &fragPath) {
     glDeleteShader(fragShader);
 }
 
+/**
+ * Method implemented to read the shader file
+ * @param path path to the shader file
+ */
 std::string Shader::readShaderFile(const std::string &path) {
     std::ifstream shaderFile(path);
     if (not shaderFile) {
@@ -32,6 +41,11 @@ std::string Shader::readShaderFile(const std::string &path) {
     return stringstream.str();
 }
 
+/**
+ * @brief method implemented to compile the shader
+ * @param path path to the shader file
+ * @param type type of the shader
+ */
 GLuint Shader::compileShader(const std::string &path, GLenum type) {
     std::string code = readShaderFile(path);
     GLuint shader = glCreateShader(type);
@@ -49,14 +63,26 @@ GLuint Shader::compileShader(const std::string &path, GLenum type) {
     return shader;
 }
 
+/**
+ * @brief Method implemented to get the location of the uniform
+ * @param name name of the uniform
+ */
 GLuint Shader::getLoc(const std::string &name) const {
     return glGetUniformLocation(id, name.c_str());
 }
 
+/**
+ * @brief method implemented to use the shader
+ */
 void Shader::use() {
     glUseProgram(id);
 }
 
+/**
+ * @brief Method implemented to set the input to the shaders
+ * @param name
+ * @param value
+ */
 void Shader::set(const std::string &name, GLboolean value) const {
     glProgramUniform1i(id, getLoc(name), (int) value);
 }

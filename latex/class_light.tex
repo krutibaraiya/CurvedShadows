@@ -1,0 +1,201 @@
+\hypertarget{class_light}{}\doxysection{Light Class Reference}
+\label{class_light}\index{Light@{Light}}
+
+
+Class to describe the light source.  
+
+
+
+
+{\ttfamily \#include $<$Light.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_light_a3244592252ba917bf8cafe4f226b3b1e}{Light}} (const glm\+::vec3 \&position, const glm\+::vec3 \&color, const glm\+::vec3 \&target=\{0, 0, 0\})
+\begin{DoxyCompactList}\small\item\em Constructor for the class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_light_a1c48208859e5c98c468bd33b21cacc84}{gen\+Depth\+Map}} (unsigned int resolution)
+\begin{DoxyCompactList}\small\item\em Method to generate the depth map. \end{DoxyCompactList}\item 
+const glm\+::vec3 \& \mbox{\hyperlink{class_light_a3384c62fff65eaf90c2f958293decccb}{get\+Position}} () const
+\begin{DoxyCompactList}\small\item\em Method to get the position of the light source. \end{DoxyCompactList}\item 
+const glm\+::vec3 \& \mbox{\hyperlink{class_light_adef6968aa9248236b595b2b2eb063fda}{get\+Color}} () const
+\begin{DoxyCompactList}\small\item\em Method to returm the color of the light. \end{DoxyCompactList}\item 
+G\+Luint \mbox{\hyperlink{class_light_ae1dde6e572db2cb60766280d5a6a31dd}{get\+Depth\+Map}} () const
+\begin{DoxyCompactList}\small\item\em Method to get the depth map. \end{DoxyCompactList}\item 
+const glm\+::mat4 \& \mbox{\hyperlink{class_light_a49257e0aacb3a6a530ce56c195943407}{get\+Model}} () const
+\begin{DoxyCompactList}\small\item\em Method to get the model matrix. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{class_light_a4ed69eb1dd42170f4b5ff0adadbbf2e2}{look\+At}} () const
+\begin{DoxyCompactList}\small\item\em Method to get the view matrix from light source\textquotesingle{}s point of view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_light_ac38c6421c3070808765855238dfa8df9}{is\+Enabled}}
+\item 
+glm\+::mat4 \mbox{\hyperlink{class_light_af43fba4065cc7be9141bcb6981b141db}{proj\+\_\+view}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe the light source. 
+
+Definition at line 13 of file Light.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_light_a3244592252ba917bf8cafe4f226b3b1e}\label{class_light_a3244592252ba917bf8cafe4f226b3b1e}} 
+\index{Light@{Light}!Light@{Light}}
+\index{Light@{Light}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{Light()}{Light()}}
+{\footnotesize\ttfamily Light\+::\+Light (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{position,  }\item[{const glm\+::vec3 \&}]{color,  }\item[{const glm\+::vec3 \&}]{target = {\ttfamily \{0,~0,~0\}} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the class. 
+
+Constructor to class \mbox{\hyperlink{class_light}{Light}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & The position of the light source \\
+\hline
+{\em color} & R\+GB color of the light source \\
+\hline
+{\em target} & The point light source are trying to be focused on\\
+\hline
+{\em position} & position of the light source \\
+\hline
+{\em color} & colour of the light source \\
+\hline
+{\em target} & target of the light source \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file Light.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_light_a1c48208859e5c98c468bd33b21cacc84}\label{class_light_a1c48208859e5c98c468bd33b21cacc84}} 
+\index{Light@{Light}!genDepthMap@{genDepthMap}}
+\index{genDepthMap@{genDepthMap}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{genDepthMap()}{genDepthMap()}}
+{\footnotesize\ttfamily void Light\+::gen\+Depth\+Map (\begin{DoxyParamCaption}\item[{unsigned int}]{resolution }\end{DoxyParamCaption})}
+
+
+
+Method to generate the depth map. 
+
+Implementing the method to get the depth of the scene.
+
+
+\begin{DoxyParams}{Parameters}
+{\em resolution} & The resolution of the map\\
+\hline
+{\em resolution} & resolution of the depth map \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 26 of file Light.\+cpp.
+
+\mbox{\Hypertarget{class_light_adef6968aa9248236b595b2b2eb063fda}\label{class_light_adef6968aa9248236b595b2b2eb063fda}} 
+\index{Light@{Light}!getColor@{getColor}}
+\index{getColor@{getColor}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{getColor()}{getColor()}}
+{\footnotesize\ttfamily const glm\+::vec3 \& Light\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to returm the color of the light. 
+
+Method defined to get the colour of the light source. 
+
+Definition at line 45 of file Light.\+cpp.
+
+\mbox{\Hypertarget{class_light_ae1dde6e572db2cb60766280d5a6a31dd}\label{class_light_ae1dde6e572db2cb60766280d5a6a31dd}} 
+\index{Light@{Light}!getDepthMap@{getDepthMap}}
+\index{getDepthMap@{getDepthMap}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{getDepthMap()}{getDepthMap()}}
+{\footnotesize\ttfamily G\+Luint Light\+::get\+Depth\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the depth map. 
+
+Method defined to get the depth map. 
+
+Definition at line 52 of file Light.\+cpp.
+
+\mbox{\Hypertarget{class_light_a49257e0aacb3a6a530ce56c195943407}\label{class_light_a49257e0aacb3a6a530ce56c195943407}} 
+\index{Light@{Light}!getModel@{getModel}}
+\index{getModel@{getModel}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{getModel()}{getModel()}}
+{\footnotesize\ttfamily const glm\+::mat4 \& Light\+::get\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the model matrix. 
+
+Method defined to get the model matrix. 
+
+Definition at line 59 of file Light.\+cpp.
+
+\mbox{\Hypertarget{class_light_a3384c62fff65eaf90c2f958293decccb}\label{class_light_a3384c62fff65eaf90c2f958293decccb}} 
+\index{Light@{Light}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const glm\+::vec3 \& Light\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the position of the light source. 
+
+method defined to get the position of light source 
+
+Definition at line 38 of file Light.\+cpp.
+
+\mbox{\Hypertarget{class_light_a4ed69eb1dd42170f4b5ff0adadbbf2e2}\label{class_light_a4ed69eb1dd42170f4b5ff0adadbbf2e2}} 
+\index{Light@{Light}!lookAt@{lookAt}}
+\index{lookAt@{lookAt}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{lookAt()}{lookAt()}}
+{\footnotesize\ttfamily glm\+::mat4 Light\+::look\+At (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Method to get the view matrix from light source\textquotesingle{}s point of view. 
+
+Implementing the method to initialise the camera position. 
+
+Definition at line 18 of file Light.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_light_ac38c6421c3070808765855238dfa8df9}\label{class_light_ac38c6421c3070808765855238dfa8df9}} 
+\index{Light@{Light}!isEnabled@{isEnabled}}
+\index{isEnabled@{isEnabled}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{isEnabled}{isEnabled}}
+{\footnotesize\ttfamily bool Light\+::is\+Enabled}
+
+
+
+Definition at line 21 of file Light.\+h.
+
+\mbox{\Hypertarget{class_light_af43fba4065cc7be9141bcb6981b141db}\label{class_light_af43fba4065cc7be9141bcb6981b141db}} 
+\index{Light@{Light}!proj\_view@{proj\_view}}
+\index{proj\_view@{proj\_view}!Light@{Light}}
+\doxysubsubsection{\texorpdfstring{proj\_view}{proj\_view}}
+{\footnotesize\ttfamily glm\+::mat4 Light\+::proj\+\_\+view}
+
+
+
+Definition at line 22 of file Light.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_light_8h}{Light.\+h}}\item 
+\mbox{\hyperlink{_light_8cpp}{Light.\+cpp}}\end{DoxyCompactItemize}

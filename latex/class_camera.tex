@@ -1,0 +1,327 @@
+\hypertarget{class_camera}{}\doxysection{Camera Class Reference}
+\label{class_camera}\index{Camera@{Camera}}
+
+
+Class to define camera.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+
+
+Collaboration diagram for Camera\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_camera_1_1_angles}{Angles}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509ec}{Direction}} \{ \newline
+\mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509ecabfec72bb37910c61f36b6c29a1f7ec31}{Direction\+::\+F\+O\+R\+W\+A\+RD}}, 
+\mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509eca6377b4908ae38f9a57fe9120cf179eb1}{Direction\+::\+B\+A\+C\+K\+W\+A\+RD}}, 
+\mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509eca684d325a7303f52e64011467ff5c5758}{Direction\+::\+L\+E\+FT}}, 
+\mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509eca21507b40c80068eda19865706fdc2403}{Direction\+::\+R\+I\+G\+HT}}, 
+\newline
+\mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509ecafbaedde498cdead4f2780217646e9ba1}{Direction\+::\+UP}}, 
+\mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509ecac4e0e4e3118472beeb2ae75827450f1f}{Direction\+::\+D\+O\+WN}}
+ \}
+\begin{DoxyCompactList}\small\item\em Simple enum to define a direction of movement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_camera_a73f3549bd81cd2e2c09cb005c32e3d87}{Camera}} (const glm\+::vec3 \&position, const glm\+::vec3 \&target, const glm\+::vec3 \&world\+Up=\{0, 1, 0\})
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_camera}{Camera}} class. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_afb2aaa8b715ca3e098183820f93f32dd}{translate}} (\mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509ec}{Camera\+::\+Direction}} direction)
+\begin{DoxyCompactList}\small\item\em Move the camera along either up, front or right axis. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{class_camera_acd37ff4690dd690e072d9f93b916504d}{look\+At}} ()
+\begin{DoxyCompactList}\small\item\em Calculate the final M\+VP matrix and call glu\+Look\+At. Call this in render loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a02be8aa0dbef77e02dddc715a726fb67}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset the camera view back to initial parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_af01d82d9ccd3acbad8380224dcb2c422}{rotate}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Modify the yaw and pitch of the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a9d36fe054977d0ab83ff21e699f3641f}{rotate}} (int z)
+\begin{DoxyCompactList}\small\item\em Modify the roll of the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_a62c2ad6713683230cfc336b3354f535f}{zoom}} (int y)
+\begin{DoxyCompactList}\small\item\em Change the perspective angle. \end{DoxyCompactList}\item 
+G\+Lfloat \mbox{\hyperlink{class_camera_afa70526212f130e218f840bb3f2ca3e8}{get\+Zoom}} () const
+\begin{DoxyCompactList}\small\item\em Get the zoom factor of the camera, to be used for glu\+Perspective. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_camera_1_1_angles}{Camera\+::\+Angles}} \mbox{\hyperlink{class_camera_a42eae48350b7550002856b19859a2676}{angles}}
+\item 
+struct \mbox{\hyperlink{struct_camera_1_1_angles}{Camera\+::\+Angles}} \mbox{\hyperlink{class_camera_ab8d41a6169e1b87e388f6731ae67ca82}{init\+Angles}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+constexpr static auto \mbox{\hyperlink{class_camera_a3316dced1b4e4b44901d59348a3e5018}{H\+A\+L\+F\+\_\+\+PI}} = glm\+::half\+\_\+pi$<$G\+Lfloat$>$()
+\item 
+constexpr static auto \mbox{\hyperlink{class_camera_ab5485e3463a070c7f6644189bc3d1ef4}{T\+W\+O\+\_\+\+PI}} = glm\+::two\+\_\+pi$<$G\+Lfloat$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to define camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em translation\+Sensitivity} & Sensitivity for translating the camera \\
+\hline
+{\em rotation\+Sensitivity} & Sensitivity for rotating the camera \\
+\hline
+{\em zoom\+Sensitivity} & Sensitivity for zoom in/out the camera \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file Camera.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_camera_a80cb65605322d27ad3b6d973484509ec}\label{class_camera_a80cb65605322d27ad3b6d973484509ec}} 
+\index{Camera@{Camera}!Direction@{Direction}}
+\index{Direction@{Direction}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509ec}{Camera\+::\+Direction}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Simple enum to define a direction of movement. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FORWARD@{FORWARD}!Camera@{Camera}}\index{Camera@{Camera}!FORWARD@{FORWARD}}}\mbox{\Hypertarget{class_camera_a80cb65605322d27ad3b6d973484509ecabfec72bb37910c61f36b6c29a1f7ec31}\label{class_camera_a80cb65605322d27ad3b6d973484509ecabfec72bb37910c61f36b6c29a1f7ec31}} 
+F\+O\+R\+W\+A\+RD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BACKWARD@{BACKWARD}!Camera@{Camera}}\index{Camera@{Camera}!BACKWARD@{BACKWARD}}}\mbox{\Hypertarget{class_camera_a80cb65605322d27ad3b6d973484509eca6377b4908ae38f9a57fe9120cf179eb1}\label{class_camera_a80cb65605322d27ad3b6d973484509eca6377b4908ae38f9a57fe9120cf179eb1}} 
+B\+A\+C\+K\+W\+A\+RD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LEFT@{LEFT}!Camera@{Camera}}\index{Camera@{Camera}!LEFT@{LEFT}}}\mbox{\Hypertarget{class_camera_a80cb65605322d27ad3b6d973484509eca684d325a7303f52e64011467ff5c5758}\label{class_camera_a80cb65605322d27ad3b6d973484509eca684d325a7303f52e64011467ff5c5758}} 
+L\+E\+FT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RIGHT@{RIGHT}!Camera@{Camera}}\index{Camera@{Camera}!RIGHT@{RIGHT}}}\mbox{\Hypertarget{class_camera_a80cb65605322d27ad3b6d973484509eca21507b40c80068eda19865706fdc2403}\label{class_camera_a80cb65605322d27ad3b6d973484509eca21507b40c80068eda19865706fdc2403}} 
+R\+I\+G\+HT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UP@{UP}!Camera@{Camera}}\index{Camera@{Camera}!UP@{UP}}}\mbox{\Hypertarget{class_camera_a80cb65605322d27ad3b6d973484509ecafbaedde498cdead4f2780217646e9ba1}\label{class_camera_a80cb65605322d27ad3b6d973484509ecafbaedde498cdead4f2780217646e9ba1}} 
+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DOWN@{DOWN}!Camera@{Camera}}\index{Camera@{Camera}!DOWN@{DOWN}}}\mbox{\Hypertarget{class_camera_a80cb65605322d27ad3b6d973484509ecac4e0e4e3118472beeb2ae75827450f1f}\label{class_camera_a80cb65605322d27ad3b6d973484509ecac4e0e4e3118472beeb2ae75827450f1f}} 
+D\+O\+WN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 36 of file Camera.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_camera_a73f3549bd81cd2e2c09cb005c32e3d87}\label{class_camera_a73f3549bd81cd2e2c09cb005c32e3d87}} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{position,  }\item[{const glm\+::vec3 \&}]{target,  }\item[{const glm\+::vec3 \&}]{world\+Up = {\ttfamily \{0,~1,~0\}} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_camera}{Camera}} class. 
+
+Parametrized constructor to initialise \mbox{\hyperlink{class_camera}{Camera}} class.
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & Initial location of the camera \\
+\hline
+{\em target} & Co-\/ordinates of where the camera is pointing \\
+\hline
+{\em world\+Up} & Up vector for world view \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 56 of file Camera.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_camera_afa70526212f130e218f840bb3f2ca3e8}\label{class_camera_afa70526212f130e218f840bb3f2ca3e8}} 
+\index{Camera@{Camera}!getZoom@{getZoom}}
+\index{getZoom@{getZoom}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{getZoom()}{getZoom()}}
+{\footnotesize\ttfamily G\+Lfloat Camera\+::get\+Zoom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the zoom factor of the camera, to be used for glu\+Perspective. 
+
+Method to get the zoom factor. 
+
+Definition at line 107 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_acd37ff4690dd690e072d9f93b916504d}\label{class_camera_acd37ff4690dd690e072d9f93b916504d}} 
+\index{Camera@{Camera}!lookAt@{lookAt}}
+\index{lookAt@{lookAt}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{lookAt()}{lookAt()}}
+{\footnotesize\ttfamily glm\+::mat4 Camera\+::look\+At (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculate the final M\+VP matrix and call glu\+Look\+At. Call this in render loop. 
+
+Method to set the position and axis of camera. 
+
+Definition at line 47 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a02be8aa0dbef77e02dddc715a726fb67}\label{class_camera_a02be8aa0dbef77e02dddc715a726fb67}} 
+\index{Camera@{Camera}!reset@{reset}}
+\index{reset@{reset}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Camera\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset the camera view back to initial parameters. 
+
+Method to reset the camera position and axis to initial. 
+
+Definition at line 68 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_af01d82d9ccd3acbad8380224dcb2c422}\label{class_camera_af01d82d9ccd3acbad8380224dcb2c422}} 
+\index{Camera@{Camera}!rotate@{rotate}}
+\index{rotate@{rotate}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Camera\+::rotate (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Modify the yaw and pitch of the camera. 
+
+Method to pitch and yaw the camera.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & Horizontal offset of the movement \\
+\hline
+{\em y} & Vertical offset of the movement \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 79 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a9d36fe054977d0ab83ff21e699f3641f}\label{class_camera_a9d36fe054977d0ab83ff21e699f3641f}} 
+\index{Camera@{Camera}!rotate@{rotate}}
+\index{rotate@{rotate}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Camera\+::rotate (\begin{DoxyParamCaption}\item[{int}]{z }\end{DoxyParamCaption})}
+
+
+
+Modify the roll of the camera. 
+
+Method to roll the camera in xy-\/plane.
+
+
+\begin{DoxyParams}{Parameters}
+{\em z} & Rotation about front axis \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 88 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_afb2aaa8b715ca3e098183820f93f32dd}\label{class_camera_afb2aaa8b715ca3e098183820f93f32dd}} 
+\index{Camera@{Camera}!translate@{translate}}
+\index{translate@{translate}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{translate()}{translate()}}
+{\footnotesize\ttfamily void Camera\+::translate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_camera_a80cb65605322d27ad3b6d973484509ec}{Camera\+::\+Direction}}}]{direction }\end{DoxyParamCaption})}
+
+
+
+Move the camera along either up, front or right axis. 
+
+Method to translate the camera.
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file Camera.\+cpp.
+
+\mbox{\Hypertarget{class_camera_a62c2ad6713683230cfc336b3354f535f}\label{class_camera_a62c2ad6713683230cfc336b3354f535f}} 
+\index{Camera@{Camera}!zoom@{zoom}}
+\index{zoom@{zoom}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{zoom()}{zoom()}}
+{\footnotesize\ttfamily void Camera\+::zoom (\begin{DoxyParamCaption}\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Change the perspective angle. 
+
+Method to zoom the camera.
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & Vertical offset of the movement \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 99 of file Camera.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_camera_a42eae48350b7550002856b19859a2676}\label{class_camera_a42eae48350b7550002856b19859a2676}} 
+\index{Camera@{Camera}!angles@{angles}}
+\index{angles@{angles}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{angles}{angles}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_camera_1_1_angles}{Camera\+::\+Angles}} Camera\+::angles}
+
+\mbox{\Hypertarget{class_camera_a3316dced1b4e4b44901d59348a3e5018}\label{class_camera_a3316dced1b4e4b44901d59348a3e5018}} 
+\index{Camera@{Camera}!HALF\_PI@{HALF\_PI}}
+\index{HALF\_PI@{HALF\_PI}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{HALF\_PI}{HALF\_PI}}
+{\footnotesize\ttfamily constexpr static auto Camera\+::\+H\+A\+L\+F\+\_\+\+PI = glm\+::half\+\_\+pi$<$G\+Lfloat$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 40 of file Camera.\+h.
+
+\mbox{\Hypertarget{class_camera_ab8d41a6169e1b87e388f6731ae67ca82}\label{class_camera_ab8d41a6169e1b87e388f6731ae67ca82}} 
+\index{Camera@{Camera}!initAngles@{initAngles}}
+\index{initAngles@{initAngles}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{initAngles}{initAngles}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_camera_1_1_angles}{Camera\+::\+Angles}} Camera\+::init\+Angles}
+
+\mbox{\Hypertarget{class_camera_ab5485e3463a070c7f6644189bc3d1ef4}\label{class_camera_ab5485e3463a070c7f6644189bc3d1ef4}} 
+\index{Camera@{Camera}!TWO\_PI@{TWO\_PI}}
+\index{TWO\_PI@{TWO\_PI}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{TWO\_PI}{TWO\_PI}}
+{\footnotesize\ttfamily constexpr static auto Camera\+::\+T\+W\+O\+\_\+\+PI = glm\+::two\+\_\+pi$<$G\+Lfloat$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line 41 of file Camera.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\item 
+\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

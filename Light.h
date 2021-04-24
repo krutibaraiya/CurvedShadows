@@ -1,7 +1,6 @@
 #ifndef LIGHT_H
 #define LIGHT_H
 
-//#include "common.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -23,7 +22,7 @@ public:
     glm::mat4 proj_view;
 
     /**
-     * @brief Consturctor for the class
+     * @brief Constructor for the class
      * @param position The position of the light source
      * @param color RGB color of the light source
      * @param target The point light source are trying to be focused on
@@ -62,4 +61,4 @@ public:
     [[nodiscard]] glm::mat4 lookAt() const;
 };
 
-#endif //LIGHT_H
+#endif

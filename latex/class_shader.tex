@@ -1,0 +1,199 @@
+\hypertarget{class_shader}{}\doxysection{Shader Class Reference}
+\label{class_shader}\index{Shader@{Shader}}
+
+
+Class defined for shader.  
+
+
+
+
+{\ttfamily \#include $<$Shader.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_shader_a76a920e746eed2f8fb521c5267f4fa78}{Shader}} (const std\+::string \&vert\+Path, const std\+::string \&frag\+Path)
+\begin{DoxyCompactList}\small\item\em constructor for \mbox{\hyperlink{class_shader}{Shader}} class \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_a870fa9f13d69e558815d6fd351a469dc}{use}} ()
+\begin{DoxyCompactList}\small\item\em method implemented to use the shader \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_a946663269ccf7736eab6c12b2766212c}{set}} (const std\+::string \&name, G\+Lboolean value) const
+\begin{DoxyCompactList}\small\item\em Method implemented to set the input to the shaders. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_shader_a2ba0a3ae63be7addd949fdab4ad9f792}{set}} (const std\+::string \&name, G\+Lint value) const
+\item 
+void \mbox{\hyperlink{class_shader_a43851d9448f6ab8f0a293943558d3855}{set}} (const std\+::string \&name, G\+Lfloat value) const
+\item 
+void \mbox{\hyperlink{class_shader_aa17e252df37c23e63bcd85cd5837f0b2}{set}} (const std\+::string \&name, const std\+::vector$<$ G\+Lint $>$ \&values) const
+\item 
+void \mbox{\hyperlink{class_shader_ad5838ac65f6ca8e556f636c6c3e3bff0}{set}} (const std\+::string \&name, const std\+::vector$<$ G\+Lfloat $>$ \&values) const
+\item 
+void \mbox{\hyperlink{class_shader_a5c0987e80328245308aacbcb11031ef7}{set}} (const std\+::string \&name, const glm\+::vec3 \&value) const
+\item 
+void \mbox{\hyperlink{class_shader_a0312591e8d3a2bc48dd770225a11b638}{set}} (const std\+::string \&name, const glm\+::mat4x4 \&value) const
+\item 
+void \mbox{\hyperlink{class_shader_a6e8b64595b3bb1a9df7e49691cd08da2}{setf}} (const std\+::string \&name, const std\+::vector$<$ G\+Lfloat $>$ \&values) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \mbox{\hyperlink{class_shader_afe360c94e9f0727889b198f773cff5e2}{id}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class defined for shader. 
+
+Definition at line 14 of file Shader.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_shader_a76a920e746eed2f8fb521c5267f4fa78}\label{class_shader_a76a920e746eed2f8fb521c5267f4fa78}} 
+\index{Shader@{Shader}!Shader@{Shader}}
+\index{Shader@{Shader}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{Shader()}{Shader()}}
+{\footnotesize\ttfamily Shader\+::\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{vert\+Path,  }\item[{const std\+::string \&}]{frag\+Path }\end{DoxyParamCaption})}
+
+
+
+constructor for \mbox{\hyperlink{class_shader}{Shader}} class 
+
+Constructor to the class \mbox{\hyperlink{class_shader}{Shader}} 
+\begin{DoxyParams}{Parameters}
+{\em vert\+Path} & path to the vertex shader file \\
+\hline
+{\em frag\+Path} & path to the fragment shader file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file Shader.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_shader_a0312591e8d3a2bc48dd770225a11b638}\label{class_shader_a0312591e8d3a2bc48dd770225a11b638}} 
+\index{Shader@{Shader}!set@{set}}
+\index{set@{set}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily void Shader\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const glm\+::mat4x4 \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 101 of file Shader.\+cpp.
+
+\mbox{\Hypertarget{class_shader_a5c0987e80328245308aacbcb11031ef7}\label{class_shader_a5c0987e80328245308aacbcb11031ef7}} 
+\index{Shader@{Shader}!set@{set}}
+\index{set@{set}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily void Shader\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const glm\+::vec3 \&}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 107 of file Shader.\+cpp.
+
+\mbox{\Hypertarget{class_shader_ad5838ac65f6ca8e556f636c6c3e3bff0}\label{class_shader_ad5838ac65f6ca8e556f636c6c3e3bff0}} 
+\index{Shader@{Shader}!set@{set}}
+\index{set@{set}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily void Shader\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ G\+Lfloat $>$ \&}]{values }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 98 of file Shader.\+cpp.
+
+\mbox{\Hypertarget{class_shader_aa17e252df37c23e63bcd85cd5837f0b2}\label{class_shader_aa17e252df37c23e63bcd85cd5837f0b2}} 
+\index{Shader@{Shader}!set@{set}}
+\index{set@{set}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily void Shader\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ G\+Lint $>$ \&}]{values }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 95 of file Shader.\+cpp.
+
+\mbox{\Hypertarget{class_shader_a946663269ccf7736eab6c12b2766212c}\label{class_shader_a946663269ccf7736eab6c12b2766212c}} 
+\index{Shader@{Shader}!set@{set}}
+\index{set@{set}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily void Shader\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{G\+Lboolean}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Method implemented to set the input to the shaders. 
+
+Methods to set the input to the shaders
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em value} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 86 of file Shader.\+cpp.
+
+\mbox{\Hypertarget{class_shader_a43851d9448f6ab8f0a293943558d3855}\label{class_shader_a43851d9448f6ab8f0a293943558d3855}} 
+\index{Shader@{Shader}!set@{set}}
+\index{set@{set}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily void Shader\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{G\+Lfloat}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 92 of file Shader.\+cpp.
+
+\mbox{\Hypertarget{class_shader_a2ba0a3ae63be7addd949fdab4ad9f792}\label{class_shader_a2ba0a3ae63be7addd949fdab4ad9f792}} 
+\index{Shader@{Shader}!set@{set}}
+\index{set@{set}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily void Shader\+::set (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{G\+Lint}]{value }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 89 of file Shader.\+cpp.
+
+\mbox{\Hypertarget{class_shader_a6e8b64595b3bb1a9df7e49691cd08da2}\label{class_shader_a6e8b64595b3bb1a9df7e49691cd08da2}} 
+\index{Shader@{Shader}!setf@{setf}}
+\index{setf@{setf}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{setf()}{setf()}}
+{\footnotesize\ttfamily void Shader\+::setf (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{const std\+::vector$<$ G\+Lfloat $>$ \&}]{values }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 104 of file Shader.\+cpp.
+
+\mbox{\Hypertarget{class_shader_a870fa9f13d69e558815d6fd351a469dc}\label{class_shader_a870fa9f13d69e558815d6fd351a469dc}} 
+\index{Shader@{Shader}!use@{use}}
+\index{use@{use}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily void Shader\+::use (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+method implemented to use the shader 
+
+
+
+Definition at line 77 of file Shader.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_shader_afe360c94e9f0727889b198f773cff5e2}\label{class_shader_afe360c94e9f0727889b198f773cff5e2}} 
+\index{Shader@{Shader}!id@{id}}
+\index{id@{id}!Shader@{Shader}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily G\+Luint Shader\+::id}
+
+
+
+Definition at line 35 of file Shader.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_shader_8h}{Shader.\+h}}\item 
+\mbox{\hyperlink{_shader_8cpp}{Shader.\+cpp}}\end{DoxyCompactItemize}

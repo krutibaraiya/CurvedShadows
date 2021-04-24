@@ -2,15 +2,21 @@
 #include <assimp/postprocess.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 #include <stdexcept>
 #include "ObjModel.h"
 
+/**
+ * brief Constructor of the class ObjModel
+ * @param path path of the obj file of the object
+ */
 ObjModel::ObjModel(const char* path) {
     load(path);
 }
 
+/**
+ * @brief Method implemented to parse the obj file of the object
+ * @param path path path of the obj file of the object
+ */
 void ObjModel::load(const char* path) {
     Assimp::Importer importer;
     auto scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
@@ -20,6 +26,11 @@ void ObjModel::load(const char* path) {
     processNode(scene->mRootNode, scene);
 }
 
+/**
+ * @brief Method defined to triangulate the vertices
+ * @param node pointer to the vertex of the object
+ * @param scene root node, meshes, materials
+ */
 void ObjModel::processNode(aiNode* node, const aiScene* scene) {
     for (unsigned int i = 0; i < node->mNumMeshes; i++) {
         auto mesh = scene->mMeshes[node->mMeshes[i]];
@@ -30,6 +41,11 @@ void ObjModel::processNode(aiNode* node, const aiScene* scene) {
     }
 }
 
+/**
+ * @brief Method implemented to process the mesh
+ * @param mesh pointer to mesh
+ * @param scene pointer to scene
+ */
 Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
     std::vector<Vertex> vertices;
     std::vector<unsigned int> indices;
@@ -54,12 +70,20 @@ Mesh ObjModel::processMesh(aiMesh* mesh, const aiScene* scene) {
     return Mesh(vertices, indices);
 }
 
+/**
+ * brief Method to render the object
+ */
 void ObjModel::draw() {
     for (auto &mesh : meshes) {
         mesh.draw();
     }
 }
 
+/**
+ * Constructor for class Mesh
+ * @param vertices vector of vertices of the object
+ * @param indices vector of indices of the vertices
+ */
 Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> &indices) : vertices(vertices),
                                                                                             indices(indices) {
     glGenVertexArrays(1, &vao);
@@ -83,7 +107,9 @@ Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<unsigned int> 
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) offsetof(Vertex, uv));
     glBindVertexArray(0);
 }
-
+/**
+ * @brief Method to render the mesh
+ */
 void Mesh::draw() {
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
