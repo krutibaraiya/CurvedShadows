@@ -1,7 +1,11 @@
 cmake-build-*
 CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
 
 *.cbp
+*.layout
 
 *.out
 *.exe
