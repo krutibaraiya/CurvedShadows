@@ -1,6 +1,5 @@
 // Include standard headers
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 
 // Include GLEW
 #include <GL/glew.h>
@@ -25,7 +24,7 @@ Light whitelight =  {{10,  15, 10},  {1, 0.6, 0.6}};
 bool isDragging = false;
 double dragX = -1, dragY = -1;
 
-//implementing key callbacks left
+
 
 void glfw_key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_W and action == GLFW_PRESS) {

@@ -4,7 +4,7 @@ find_package(PkgConfig REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(CurvedShadows main.cpp Shader.cpp Shader.h ObjModel.cpp ObjModel.h Camera.cpp Camera.h Parser.cpp Parser.h Light.cpp Light.h)
+add_executable(CurvedShadows main.cpp Shader.cpp Shader.h ObjModel.cpp ObjModel.h Camera.cpp Camera.h Light.cpp Light.h)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
 find_package(OpenGL REQUIRED)

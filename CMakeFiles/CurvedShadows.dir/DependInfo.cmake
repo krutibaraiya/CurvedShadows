@@ -1,23 +1,18 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
   )
-# The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/sristi/CurvedShadows/Camera.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/Camera.cpp.o"
-  "/home/sristi/CurvedShadows/Light.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/Light.cpp.o"
-  "/home/sristi/CurvedShadows/ObjModel.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o"
-  "/home/sristi/CurvedShadows/Parser.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/Parser.cpp.o"
-  "/home/sristi/CurvedShadows/Shader.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/Shader.cpp.o"
-  "/home/sristi/CurvedShadows/main.cpp" "/home/sristi/CurvedShadows/CMakeFiles/CurvedShadows.dir/main.cpp.o"
-  )
-set(CMAKE_CXX_COMPILER_ID "GNU")
 
-# The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "CurvedShadows"
-  "GLM_INCLUDE_DIR"
-  "ASSIMP_INCLUDE_DIRS"
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/kruti/Desktop/Sristi_ISF311/CurvedShadows/Camera.cpp" "CMakeFiles/CurvedShadows.dir/Camera.cpp.o" "gcc" "CMakeFiles/CurvedShadows.dir/Camera.cpp.o.d"
+  "/home/kruti/Desktop/Sristi_ISF311/CurvedShadows/Light.cpp" "CMakeFiles/CurvedShadows.dir/Light.cpp.o" "gcc" "CMakeFiles/CurvedShadows.dir/Light.cpp.o.d"
+  "/home/kruti/Desktop/Sristi_ISF311/CurvedShadows/ObjModel.cpp" "CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o" "gcc" "CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o.d"
+  "/home/kruti/Desktop/Sristi_ISF311/CurvedShadows/Shader.cpp" "CMakeFiles/CurvedShadows.dir/Shader.cpp.o" "gcc" "CMakeFiles/CurvedShadows.dir/Shader.cpp.o.d"
+  "/home/kruti/Desktop/Sristi_ISF311/CurvedShadows/main.cpp" "CMakeFiles/CurvedShadows.dir/main.cpp.o" "gcc" "CMakeFiles/CurvedShadows.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.
