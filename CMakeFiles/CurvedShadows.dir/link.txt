@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/CurvedShadows.dir/main.cpp.o CMakeFiles/CurvedShadows.dir/Shader.cpp.o CMakeFiles/CurvedShadows.dir/ObjModel.cpp.o CMakeFiles/CurvedShadows.dir/Camera.cpp.o CMakeFiles/CurvedShadows.dir/Light.cpp.o -o CurvedShadows  -lGL -lGLU -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi -ldl -lXinerama -lXcursor -lassimp /usr/lib/x86_64-linux-gnu/libGLEW.so 

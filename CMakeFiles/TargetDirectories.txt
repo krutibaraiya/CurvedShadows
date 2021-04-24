@@ -1,3 +1,0 @@
-/home/kruti/Desktop/Sristi_ISF311/CurvedShadows/CMakeFiles/rebuild_cache.dir
-/home/kruti/Desktop/Sristi_ISF311/CurvedShadows/CMakeFiles/edit_cache.dir
-/home/kruti/Desktop/Sristi_ISF311/CurvedShadows/CMakeFiles/CurvedShadows.dir
