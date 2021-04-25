@@ -3,11 +3,6 @@ OpenGL implementation of shadow mapping as described in the [research paper](htt
 
 Course Project for IS F311- Computer Graphics @ BITS Pilani, Hyderabad Campus.
 
-<!-- ## Objective:
-* To understand OpenGL Transformations, 3D viewing Pipeline and matrix stack operations.
-* Incorporating objects made in 3D Modelling software such as Blender.
-* Implementing camera functions such as pan ,zoom, pitch, yaw and roll to interact with the scene. -->
-
 ## Algorithm:
 <!-- ![Scene from observer's view](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/fromobsview.png)
 
@@ -85,6 +80,8 @@ The solution to this issue is to add a “bias” (error margin) i.e we simply o
  </table>
  In the above left image ,the edges of the shadows are extremely jagged. On the border, one pixel is white and the other is dark without any smooth transition in between them. This can be overcome by sampling the shadow map N times (16 times here) instead of one, this is PCF (Percentage Close Filtering). Use of Poisson sampling reduces aliasing. Neighbouring pixels in the small circular disc (called the Poisson disc) are sampled every time , thus creating a smooth shadow in the final output.
 
+## Final scene:
+![Final output scene](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/scene1.png)
 
 ## Camera Movements:
 | Control          | Action                                            |
