@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curved Shadows</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css" >
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Curved Shadows</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+     <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+     <a class="nav-item nav-link" href="algo.html">Algorithm</a>
+     <a class="nav-item nav-link" href="challenges.html">Challenges</a>
+     <a class="nav-item nav-link" href="desc.html">Description</a>
+
+    </div>
+  </div>
+</nav>
+    <div class="outer">
+
+    <h3 style="text-align: center">Challenges</h3>
+    <br>
+
+    
+    
+        
+        <br>
+        
+        <ul style="margin-left: 50px;">
+            <li >
+                <h4 >Shadow acne</h4>
+                <br>
+                <div class="image1" style="display:flex" >
+                    <img style="width:50%" src = "../images/moire1.png" alt="scene" >
+                    <img style="margin-left: 50px; width:50%" src = "../images/moire2.png" alt="scene" >
+                </div>
+                <br>
+                <p>
+                    Closer look of the scene shows us distinct, alternating black lines and speckled patterns (Moire pattern). This is because of the resolution of the shadow map. When far away from the light source, multiple fragments can sample the same value from the depth map. This is an issue when the light source is inclined at an angle because the depth map is also rendered from that inclined angle. This tilted depth texel is used by multiple fragments, while some above and some are below the surface. The “raised” pixels cast small shadows onto their neighbours. Some fragments are considered to be the shadow and some aren’t, hence giving the speckled Moire pattern.
+                </p>
+                <p>
+                    The solution to this issue is to add a “bias” (error margin) i.e we simply offset the z-coordinates by a bias so that they aren’t incorrectly considered below the surface. After adding the bias, all samples get a depth smaller than the surface's depth and hence those “raised” pixels can’t cast a shadow anymore. Thus, removing the self shadowing/ shadow acne.
+                </p>
+                
+            </li>
+            <br><hr><br>
+            <li>
+                <h4 >Peter pannning</h4>
+                <br>
+                <div class="image1" style="display:flex" >
+                    <img style="width:50%" src = "../images/peter1.png" alt="scene" >
+                    <img style="margin-left: 50px; width:50%" src = "../images/peter2.png" alt="scene" >
+                </div>
+                <br>
+                <p>
+                    After adding the bias, we notice that the objects seem detached from their shadows. It gives a hovering effect to the objects and the phenomenon is called Peter-Panning. This is because by applying bias, we are actually adding an offset to the depth. 
+To correct this issue we keep a small, un-noticeable and varying bias which is dependent on the angle between the surface and light source. We also enable face culling with glEnable(GL_CULL_FACE); which solves Peter Panning for solid objects.
+                </p>
+                
+            </li>
+
+            <br><hr><br>
+            <li>
+                <h4>Aliasing</h4>
+                <br>
+                <div class="image1" style="display:flex" >
+                    <img style="width:50%" src = "../images/alias1.png" alt="scene" >
+                    <img style="margin-left: 50px; width:50%" src = "../images/alias2.png" alt="scene" >
+                </div>
+                <br>
+                <p>
+                    The edge of the shadows are extremely jagged. On the border, one pixel is white and the other is dark without any smooth transition in between them. This can be  overcome by sampling the shadow map N times (16 times here) instead of one, this is PCF (Percentage Close Filtering). Use of Poisson sampling reduces aliasing. Neighbouring pixels in the small circular disc (called the Poisson disc) are sampled every time , thus creating a smooth shadow in the final output.
+                </p>
+            </li>
+        </ul>
+    
+         
+        
+    
+        
+        
+       
+            
+    
+        
+    </div>
+
+    
+
+    
+
+
+    
+    
+    
+
+    
+</div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curved Shadows</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/styles.css" >
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Curved Shadows</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link" href="algo.html">Algorithm</a>
+        <a class="nav-item nav-link" href="challenges.html">Challenges</a>
+        <a class="nav-item nav-link" href="desc.html">Description</a>
+
+    </div>
+  </div>
+</nav>
+    <div class="outer">
+
+    <h3 style="text-align: center">Casting Curved Shadows on Curved Surfaces, Lance Williams, 1978</h3>
+    <br>
+
+    <div class="intro" style="text-align: center">
+        <h4 style="text-align: center"> An OpenGL C++ implementation of basic shadow mapping using a depth buffer.</h4>
+        
+
+    </div>
+    <br>
+
+    <div class = "specifications">
+        <p>The project is tested on Linux and built with:</p>
+        <ul>
+            <li>Programming language: C++</li>
+            <li>Graphics API: OpenGL</li>
+            <li>GLFW</li>
+            <li>GLEW</li>
+            <li>GLM</li>
+            <li>CMake</li>
+            <li>Open Asset Import Library (Assimp)</li>
+        </ul>
+        <p> <u>To build:</u>  cmake -G "CodeBlocks - Unix Makefiles" /path/to/CurvedShadows &nbsp &nbsp &nbsp &nbsp &nbsp<u>To run:</u> ./CurvedShadows</p>
+       
+    </div>
+
+    <div class = "camera-mov">
+        <p><u>Camera Movements:</u></p>
+        
+        <ul>
+            <li>W,S,A,D,↑,↓ keys to move the camera front, back, left, right, up and down respectively</li>
+            <li>R to reset the camera</li>
+            <li>Left click and drag mouse to pan around</li>
+            <li>Scroll mouse to zoom</li>
+            <li>Q to quit</li>
+        </ul>
+    
+    </div>
+
+    <div class = "references">
+        <p><u>References:</u></p>
+        
+        <ul>
+            <li ><a href="https://dl.acm.org/doi/10.1145/280811.280975"> Link to Research paper</a></li>
+        </ul>
+    
+    </div>
+    
+
+    
+</div>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
