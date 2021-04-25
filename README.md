@@ -21,7 +21,7 @@ The algorithm described in the paper consists of two steps:
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/fromlightview.png" ></td>
   </tr>
   <tr>
-    <td>Observer's view</td>
+    <td>From observer's view</td>
      <td>From light source's view</td>
   </tr>
  </table>
