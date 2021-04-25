@@ -27,12 +27,7 @@
     <div class="outer">
 
     <h3 style="text-align: center">Challenges</h3>
-    <br>
-
-    
-    
-        
-        <br>
+    <br><br>
         
         <ul style="margin-left: 50px;">
             <li >
@@ -44,7 +39,7 @@
                 </div>
                 <br>
                 <p>
-                    Closer look of the scene shows us distinct, alternating black lines and speckled patterns (Moire pattern). This is because of the resolution of the shadow map. When far away from the light source, multiple fragments can sample the same value from the depth map. This is an issue when the light source is inclined at an angle because the depth map is also rendered from that inclined angle. This tilted depth texel is used by multiple fragments, while some above and some are below the surface. The “raised” pixels cast small shadows onto their neighbours. Some fragments are considered to be the shadow and some aren’t, hence giving the speckled Moire pattern.
+                    Closer look of the scene on the left shows us distinct, alternating black lines and speckled patterns (Moire pattern). This is because of the resolution of the shadow map. When far away from the light source, multiple fragments can sample the same value from the depth map. This is an issue when the light source is inclined at an angle because the depth map is also rendered from that inclined angle. This tilted depth texel is used by multiple fragments, while some above and some are below the surface. The “raised” pixels cast small shadows onto their neighbours. Some fragments are considered to be the shadow and some aren’t, hence giving the speckled Moire pattern.
                 </p>
                 <p>
                     The solution to this issue is to add a “bias” (error margin) i.e we simply offset the z-coordinates by a bias so that they aren’t incorrectly considered below the surface. After adding the bias, all samples get a depth smaller than the surface's depth and hence those “raised” pixels can’t cast a shadow anymore. Thus, removing the self shadowing/ shadow acne.
@@ -77,7 +72,7 @@ To correct this issue we keep a small, un-noticeable and varying bias which is d
                 </div>
                 <br>
                 <p>
-                    The edge of the shadows are extremely jagged. On the border, one pixel is white and the other is dark without any smooth transition in between them. This can be  overcome by sampling the shadow map N times (16 times here) instead of one, this is PCF (Percentage Close Filtering). Use of Poisson sampling reduces aliasing. Neighbouring pixels in the small circular disc (called the Poisson disc) are sampled every time , thus creating a smooth shadow in the final output.
+                    In the above left image ,the edges of the shadows are extremely jagged. On the border, one pixel is white and the other is dark without any smooth transition in between them. This can be  overcome by sampling the shadow map N times (16 times here) instead of one, this is PCF (Percentage Close Filtering). Use of Poisson sampling reduces aliasing. Neighbouring pixels in the small circular disc (called the Poisson disc) are sampled every time , thus creating a smooth shadow in the final output.
                 </p>
             </li>
         </ul>
