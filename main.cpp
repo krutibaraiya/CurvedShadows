@@ -156,7 +156,7 @@ int main( void )
     {
         auto model = glm::mat4(1.0f);
         float near_plane = 1.f, far_plane = 35.f;
-
+        model = glm::rotate(model, ((float)glfwGetTime() * glm::radians(50.0f))/2, glm::vec3(0.0f, 1.0f, 0.0f));
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         /// 1st pass
