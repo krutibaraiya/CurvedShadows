@@ -15,7 +15,7 @@ The algorithm described in the paper consists of two steps:
 * Then the scene is constructed from the observer’s (camera) view by a linear transformation mapping of coordinates from observer’s view to the precomputed light source’s view. As each point is generated, it is tested for visibility i.e. if the point is not visible to the light source, then it lies in the shadow region. This is then shaded accordingly.
 
 
-<table>
+<!-- <table>
   <tr>
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/fromobsview.png" ></td>
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/fromlightview.png" ></td>
@@ -24,7 +24,11 @@ The algorithm described in the paper consists of two steps:
     <td>From observer's view</td>
      <td>From light source's view</td>
   </tr>
- </table>
+ </table> -->
+
+| ![obsview](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/fromobsview.png)          | ![lightview](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/fromlightview.png)                                           |
+|------------------|---------------------------------------------------|
+| From observer's view | From light source's view |
 
 [Doxygen documentation](https://github.com/krutibaraiya/CurvedShadows/tree/master/html)
 
@@ -34,7 +38,7 @@ The algorithm described in the paper consists of two steps:
 ### 1) Shadow acne
 <!-- ![Shadow acne](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/moire1.png) -->
 
-<table>
+<!-- <table>
   <tr>
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/moire1.png" ></td>
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/moire2.png" ></td>
@@ -43,7 +47,10 @@ The algorithm described in the paper consists of two steps:
     <td>With shadow acne</td>
      <td>Without shadow acne</td>
   </tr>
- </table>
+ </table> -->
+ | ![withshadowacne](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/moire1.png)          | ![withoutshadowacne](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/moire2.png)                                           |
+|------------------|---------------------------------------------------|
+| With shadow acne | Without shadow acne |
 
 Closer look of the above scene on left shows us distinct, alternating black lines and speckled patterns (Moire pattern). This is because of the resolution of the shadow map. When far away from the light source, multiple fragments can sample the same value from the depth map. This is an issue when the light source is inclined at an angle because the depth map is also rendered from that inclined angle. This tilted depth texel is used by multiple fragments, while some above and some are below the surface. The “raised” pixels cast small shadows onto their neighbours. Some fragments are considered to be the shadow and some aren’t, hence giving the speckled Moire pattern.
 
@@ -52,7 +59,7 @@ The solution to this issue is to add a “bias” (error margin) i.e we simply o
 ### 2) Peter Panning
 <!-- ![Peter panning](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/peter1.png) -->
 
-<table>
+<!-- <table>
   <tr>
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/peter1.png" ></td>
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/peter2.png" ></td>
@@ -61,14 +68,18 @@ The solution to this issue is to add a “bias” (error margin) i.e we simply o
     <td>With Peter Panning</td>
      <td>Without Peter Panning</td>
   </tr>
- </table>
+ </table> -->
+
+ | ![withpeterpan](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/peter1.png)          | ![withoutpeterpan](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/peter2.png)                                           |
+|------------------|---------------------------------------------------|
+| With Peter Panning | Without Peter Panning |
 
  After adding the bias, we notice that the objects seem detached from their shadows. It gives a hovering effect to the objects and the phenomenon is called Peter-Panning. This is because by applying bias, we are actually adding an offset to the depth. To correct this issue we keep a small, un-noticeable and varying bias which is dependent on the angle between the surface and light source. We also enable face culling with `glEnable(GL_CULL_FACE);` which solves Peter Panning for solid objects.
 
 ### 3) Aliasing
 <!-- ![Aliasing](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/alias1.png) -->
 
-<table>
+<!-- <table>
   <tr>
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/alias1.png" ></td>
     <td><img src="https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/alias2.png" ></td>
@@ -77,7 +88,12 @@ The solution to this issue is to add a “bias” (error margin) i.e we simply o
     <td>With jagged edges</td>
      <td>Without jagged edges</td>
   </tr>
- </table>
+ </table> -->
+ | ![withjaggededge](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/alias1.png)          | ![withoutjaggededge](https://github.com/krutibaraiya/CurvedShadows/blob/master/Html%20pages/images/alias2.png)                                           |
+|------------------|---------------------------------------------------|
+| With Jagged edges | Without Jagged edges |
+
+
  In the above left image ,the edges of the shadows are extremely jagged. On the border, one pixel is white and the other is dark without any smooth transition in between them. This can be overcome by sampling the shadow map N times (16 times here) instead of one, this is PCF (Percentage Close Filtering). Use of Poisson sampling reduces aliasing. Neighbouring pixels in the small circular disc (called the Poisson disc) are sampled every time , thus creating a smooth shadow in the final output.
 
 ## Final scene:
